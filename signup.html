@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Enyogoal Sign Up</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- bootstrap-->	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<!-- external css for styling -->
+	<link rel="stylesheet" type="text/css" href="signup.css">
+</head>
+<body>
+	<header>
+		<nav class="navbar navbar-expand-sm navbar-color">
+		 	<!-- Brand/logo -->
+		  	<a class="navbar-brand toplogo" href="#">
+		    	<img src="image/logo.png" alt="logo">
+		  	</a>
+	  	</nav>
+  	</header>
+
+  	<section>
+  		<div class="container">
+			<div class="row">
+				<div class="col-md-3"></div>
+				<div class="col-md-6">
+					
+					<!-- signup form -->
+					<h2>Create an account</h2>
+						
+					<form method="post" action="">
+						<div class="form-group">
+							<label for="firstname" class="cols-sm-2 control-label">Firstname</label>
+							<div class="cols-sm-10">
+								<input type="text" class="form-control" name="lastname"  placeholder="Enter lastname" required="required" >	
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="lastname" class="cols-sm-2 control-label">Lastname</label>
+								<div class="cols-sm-10">
+									<input type="text" class="form-control" name="firstname" placeholder="Enter firstname" required="required" >
+								</div>
+						</div>
+
+						<div class="form-group">
+							<label for="emailaddress" class="cols-sm-2 control-label">Email Address</label>
+								<div class="cols-sm-10">
+									<input type="email" class="form-control" name="emailaddress"  placeholder="Enter emailaddress" required="required">	
+								</div>
+						</div>
+
+						<div class="form-group">
+							<label for="password" class="cols-sm-2 control-label">Password</label>
+							<div class="cols-sm-10">
+								<input type="password" class="form-control" name="password" placeholder="Enter password" required="required">
+							</div>
+						</div>
+
+						<div class="form-group ">
+							<div class="cols-sm-10">
+								<input type="submit" name="submit" id="submit" class="button btn  btn-block  login-button" value="Sign Up">
+							<div class="cols-sm-10">				
+						</div>
+						<hr>
+
+						<div>
+							<p>Already have an account? <a href="" class="login-link">Log In</a></p>
+						</div>
+
+					</form>
+				</div>
+				<div class="col-md-3"></div>
+			</div>
+		</div>
+	</section>
+
+
+</body>
+</html>

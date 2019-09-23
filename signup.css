@@ -1,0 +1,30 @@
+body{
+	background-color:white ;
+}
+
+/*header styling*/
+.navbar-color{
+	background-color: #F2FFFC;
+}
+.toplogo{
+	width: 50%;
+}
+
+/*section styling*/
+h2{
+	text-align: center;
+	padding-top: 20px
+}
+.button{
+	background-color: #EEA538;
+	color: #FFFFFF;
+	font-weight: bold;
+}
+p{
+	text-align: center;
+}
+.login-link{
+	font-weight: bold;
+	font-size: 16px;
+	color: black
+}
