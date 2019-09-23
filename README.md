@@ -1,13 +1,13 @@
 # Team-Enyo-Goal-Tracker-App
 
-GOAL TRACKER APP (web / mobile) 
-This is a long-term to do app
+GOAL TRACKER APP (web / mobile) {This is a long-term to do app}
+
 ###Expected functionalities
-1. User can sign up_
-2. User can sign in_
-3. User can create a goal_
-4. Each goal has todo items_
-5. Total progress of goal is calculated based on todo items done_
+1. User can sign up
+2. User can sign in
+3. User can create a goal
+4. Each goal has todo items
+5. Total progress of goal is calculated based on todo items done
 6. User can see statistics of his goal
 
 
