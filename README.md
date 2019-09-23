@@ -2,7 +2,7 @@
 
 GOAL TRACKER APP (web / mobile) {This is a long-term to do app}
 
-###Expected functionalities
+### Expected functionalities
 1. User can sign up
 2. User can sign in
 3. User can create a goal
