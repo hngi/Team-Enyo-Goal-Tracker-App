@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+body {
+    background-color: #F2FFFC;
+    font-family: Roboto;
+}
+/* Image styling*/
+img {
+   background-position: center top;
+   background-repeat: no-repeat;
+   margin-left: 45%;
+   margin-right: 40%;
+   margin-top: 5%;
+   margin-bottom: -50px;
+}
+
+/* form styling*/
+.container{
+    margin: auto auto;
+    border:2px solid#FFFFFF;
+    background-color: #FFFFFF;
+    max-width:40%;
+    margin-top: 90px;
+    border-radius: 5px;
+    box-shadow: 6px 9px 43px rgba(0, 0, 0, 0.09);
+    
+    
+}
+
+h3 {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: bold;
+    line-height: 28px;
+    color: #2A4641;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.details {
+    font-size: 18px;
+    line-height: 21px;
+    padding-left: 30px;;
+    
+}
+
+input {
+border: 1px solid rgba(109, 136, 130, 0.42);
+padding: 18px;
+width: 80%;
+margin-left: 30px;
+margin-bottom: 45px;
+border-radius: 3px;
+}
+::placeholder{
+    font-size: 18px;
+    font-style: normal;
+    line-height: 21px;
+}
+
+/* Button-styling*/
+button {
+    background-color: #EEA538;
+    color:#FFFFFF;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 28px;
+    width: 86%;
+    padding:11px;
+    margin-left: 30px;
+    margin-bottom: 50px;
+    cursor: pointer;
+    display: block;
+    border: none;
+    border-radius: 3px;
+}
+
+.back-link {
+    font-size: 24px;
+    text-align: center;
+    color: #405954;
+}
+
+a {
+    text-decoration: none;
+    color: rgba(64, 89, 84, 0.9);
+    font-weight: bold;
+    line-height: 28px;
+    font-style: normal;
+}
+span {
+    padding-left: 20px;
+}
+
+hr {
+    border: 1px solid rgba(109, 136, 130, 0.6);
+    width: 60%;
+}
+
+/* Media queries*/
+
+@media (min-width: 600px) {
+    .container {
+        max-width: 40vw;
+    }
+    }
+   
+@media (max-width: 600px) {
+    img{
+        margin-left: 30%;
+        margin-right: 20%;
+        background-position: center top;
+    }
+    .container {
+        max-width:80%;
+        margin-top: 25%;
+        margin-left:10%; 
+        margin-right: 10%; 
+         
+       }
+       input{
+           width: auto;
+           padding: 9px;
+           margin-bottom:25px;
+           box-sizing: border-box;
+       }
+
+       .details {
+           font-size: 14px;
+       }
+       h3 { 
+           font-size: 18px;
+       }
+       
+       button {
+           width: 70%;
+           padding: 10px;
+           font-size: 14px;
+           line-height: 10px;
+           display: inline-block;
+           cursor: pointer;
+           margin-bottom: 30px;
+           
+       }
+       
+       .back-link {
+           font-size: 14px;
+       }
+
+       ::placeholder {
+           font-size: 10px;
+           line-height: 11px;
+           padding: 10px;
+       }
+
+}
