@@ -100,6 +100,10 @@ hr {
     margin-top: 0;
 }
 
+.container > p.details {
+    margin-bottom: 0;
+}
+
 .container > p a {
     color: var(--font-color);
     text-decoration: none;
