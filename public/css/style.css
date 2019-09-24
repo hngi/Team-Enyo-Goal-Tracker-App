@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body{
+    width: 100%;
+    height: 100vh;
+    font-family: Roboto;
+    font-style: normal;
+}
+
+
+
+/* navigation bar and navigation menu-links */
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 10px;
+    background: #F2FFFC;
+    
+}
+
+.nav-links{
+    display: flex;
+    width: 30%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.nav-links a{
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 24px;
+    padding: 12px;
+}
+
+.nav-links li{
+    list-style-type: none;
+}
+
+.login-link:hover {
+    text-decoration: none;
+    color: #54524F;
+}
+
+.signup-link:hover{
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.signup-link, .login-link {
+    color: #54524F;
+    font-size: 24px;
+    line-height: 28px;
+}
+
+.signup-link{    
+    color: #FFFFFF;
+    background: #F29A15;
+    border: 2px solid #D39538;
+}
+
+
+
+/* section */
+
+section{
+    background: #05A382;
+    width: 100%;
+    min-height: 572px;
+    
+    padding-top: 100px;
+}
+
+.hero-text{  
+    color: #FFFFFF;
+    font-weight: bold; 
+    font-size: 28px;
+    line-height: 50px;  
+}
+
+.hero-small-text{
+    padding-top: 20px;
+    color: #FFFFFF;
+    /* font-weight: bold; */
+    font-size: 16px;
+    line-height: 100px;  
+}
+
+.button{
+    padding: 12px;
+}
+
+.logo-mobile{
+    display: none;
+}
+.hero-button-login{
+    display: none;
+}
+
+
+/* media queries*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  /* nav links */
+    .nav-links{
+        width: unset;
+    }
+    
+/* section */
+    .hero-button-login{
+        display: none;
+    }
+    
+  }
+
+@media (min-width: 481px) and (max-width: 767px) {
+    /* main section */
+      section{
+        height: 100vh;
+        background: #05A382;
+
+    }
+    /* navigation bar links */
+    
+    .nav-links{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 50%;
+    }
+    
+    
+  }
+
+  @media (min-width: 320px) and (max-width: 480px) {
+      
+
+  /* nav */
+    header{
+      display: none;
+    }
+
+    nav{
+        display: none;
+      }
+
+      /* main section */
+    section{
+    height: 100vh;
+    padding: 100px 10px 0 10px;
+    }
+
+    .hero-text{
+        display: none;
+    }
+    
+    .hero-small-text{
+        text-align: center;
+        letter-spacing: normal;
+    }
+
+    .logo-mobile{
+        margin: 0 auto;
+        display: block;
+        width: 135px;
+    }
+
+    .hero-small-text{
+        padding-top: 0;
+        color: #FFFFFF;
+        font-weight: bold;
+        font-size: 15px;
+        
+    }
+    a.button{
+        padding: 0;
+    }
+
+    .hero-button-login{
+        display: block;
+    }
+
+    .hero-button{
+        border: 1px solid #FFFFFF;
+        margin: 25px 0;
+        text-align: center;
+        color: #FFFFFF;
+        padding: 7px 0;
+        text-transform: uppercase;
+        font-family: Roboto;
+    }
+
+    .hero-button-signup{
+        color: #FFFFFF;
+        background: #F29A15;
+        border: 2px solid #D39538;
+    }
+
+    
+
+    
+
+    .signup-link, .login-link {
+        color: #FFFFFF;
+        background-color: transparent;
+        border: none;
+    }
+  }
+
