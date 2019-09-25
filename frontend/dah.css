@@ -106,7 +106,7 @@ body {
 
 .main {
     padding-top: 30px;
-    margin-left: 450px;
+    margin-left: 400px;
 }
 
 .main .content {
@@ -115,7 +115,9 @@ body {
     border-radius: 6px;
     padding: 0px 5px;
     margin: 10px;
-    height: 100%;
+    height: 500px;
+    width: 750px;
+    position: fixed;
 }
 
 .main .content .content-body {
