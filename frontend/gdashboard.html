@@ -8,15 +8,40 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="dah.css">
+    <link rel="stylesheet" type="text/css" href="add-goal.css">
+    <link rel="stylesheet" type="text/css" href="edit-form.css">
 
     <title>Dashboard | Enyo</title>
 </head>
-
+ 
 <body>
+
+    <div class="form-popup" id="myForm">
+          <form class="form-container">
+            <h1>Add New Goal</h1>
+
+            <label for="email"><b>Enter Goal Title</b></label>
+            <input type="text" placeholder="Your Goal Title" name="goal" id="goal-title">
+
+            <button type="submit" class="btn" id="add-goal-btn">Add</button>
+            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+          </form>
+    </div>
 
     <div class="container">
         <div class="row">
             <div class="col-md-4 sidebar">
+            
+                <div class="edit-popup" id="edit">
+                  <form class="edit-container">
+                   <!--  <label for="email"><b>Edit Goal Title</b></label> -->
+                    <input type="text" placeholder="Your Goal Title" name="goal" id="edit-value">
+
+                    <button type="submit" class="edit-btn" id="edit-goal-btn">Confirm</button>
+                    <button type="button" class="edit-btn cancel" onclick="closeEdit()">Close</button>
+                  </form>
+                </div>
+
                 <h3 class="welcome-message">Welcome back, <span class="username">Mide</span></h3>
                 <p class="title">
                     <img class="icon" src="https://res.cloudinary.com/mide358/image/upload/v1569410903/sniper_lzrtbc.png" /> Goals
@@ -24,11 +49,24 @@
 
                 <input class="search" type="text" name="name" placeholder="name your goal">
 
-                <ul>
+                <ul id="goal-list">
                     <li class="selected">Climb mount Kilimanjaro
-                        <span class="treedots" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></span>
-                        <div class="dropdown-menu manipulate" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item edit" href="#">
+                       <span id="clone">
+                        <span id="drop-toggle" class="treedots" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></span>
+                        <div id="drop" class="dropdown-menu manipulate" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item edit" href="#" id="del1">
+                                <i class="fa fa-edit"></i>edit
+                            </a>
+                            <a class="dropdown-item delete" href="#">
+                                <i class="fa fa-trash-o"></i>delete
+                            </a>
+                        </div>
+                       </span>
+                    </li>
+                    <li>Complete the HNG Internship
+                            <span id="drop-toggle" class="treedots" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></span>
+                        <div id="drop" class="dropdown-menu manipulate" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item edit" href="#" id="del2">
                                 <i class="fa fa-edit"></i>edit
                             </a>
                             <a class="dropdown-item delete" href="#">
@@ -36,11 +74,21 @@
                             </a>
                         </div>
                     </li>
-                    <li>Complete the HNG Internship</li>
-                    <li>Achieve product market fit</li>
+                    <li>Achieve product market fit
+                    
+                            <span id="drop-toggle" class="treedots" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></span>
+                        <div id="drop" class="dropdown-menu manipulate" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item edit" href="#" id="del3">
+                                <i class="fa fa-edit"></i>edit
+                            </a>
+                            <a class="dropdown-item delete" href="#">
+                                <i class="fa fa-trash-o"></i>delete
+                            </a>
+                        </div>
+                    </li>
                 </ul>
 
-                <button class="add-goal">
+                <button class="add-goal" onclick="openForm()">
                     <img class="icon" src="https://res.cloudinary.com/mide358/image/upload/c_scale,w_16/v1569327133/Group_2_nr6p6g.png">Add a new goal
                 </button>
 
@@ -133,6 +181,9 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="dashboard.js"></script>
+
 </body>
 
 </html>

@@ -220,7 +220,7 @@ input.search {
 /* sidebar*/
 
 .sidebar {
-    position: fixed;
+    position: absolute;
     width: 450px;
     height: 100%;
     left: 0;
@@ -244,10 +244,17 @@ input.search {
     line-height: 45px;
     color: #405954;
     padding-left: 10px;
+    cursor: pointer;
 }
 
 .sidebar ul li.selected {
     background: #F2FFFC;
+    border: 1px solid #C4C4C4;
+    border-radius: 6px;
+}
+
+.sidebar ul li:hover{
+    background: #FFF;
     border: 1px solid #C4C4C4;
     border-radius: 6px;
 }
@@ -292,7 +299,7 @@ input.search {
 
 .sidebar .add-goal {
     position: absolute;
-    bottom: 50px;
+    top: 90%;
     right: 0;
     left: 0;
     margin: auto;
