@@ -1,0 +1,19 @@
+{
+    "userID": "enyo00000000001",
+    "name": "Mide",
+    "goals": [
+        {
+            "goalIndex":0,
+            "goalTitle": "Climb mount Kilimanjaro",
+            "goalTasks": [
+                {"taskIndex": 0, "taskDecription":"Get Permision from boss", "isCompleted": true},
+                {"taskIndex": 1, "taskDecription":"Buy supplies from tesco", "isCompleted": false},
+                {"taskIndex": 2, "taskDecription":"Book flight to Tanzania", "isCompleted": false}
+            ]
+        },
+        {
+            "goalIndex":1,
+            "goalTitle": "Complete the HNG internship",
+            "goalTasks": []
+        }]
+}
