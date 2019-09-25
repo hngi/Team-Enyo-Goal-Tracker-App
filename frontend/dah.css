@@ -218,7 +218,7 @@ input.search {
 /* sidebar*/
 
 .sidebar {
-    position: fixed;
+    position: absolute;
     width: 450px;
     height: 100%;
     left: 0;
@@ -297,7 +297,7 @@ input.search {
 
 .sidebar .add-goal {
     position: absolute;
-    bottom: 50px;
+    top: 90%;
     right: 0;
     left: 0;
     margin: auto;

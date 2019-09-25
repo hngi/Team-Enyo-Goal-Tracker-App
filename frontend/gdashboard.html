@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="dah.css">
     <link rel="stylesheet" type="text/css" href="add-goal.css">
+    <link rel="stylesheet" type="text/css" href="edit-form.css">
 
     <title>Dashboard | Enyo</title>
 </head>
@@ -30,6 +31,17 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4 sidebar">
+            
+                <div class="edit-popup" id="edit">
+                  <form class="edit-container">
+                   <!--  <label for="email"><b>Edit Goal Title</b></label> -->
+                    <input type="text" placeholder="Your Goal Title" name="goal" id="edit-value">
+
+                    <button type="submit" class="edit-btn" id="edit-goal-btn">Confirm</button>
+                    <button type="button" class="edit-btn cancel" onclick="closeEdit()">Close</button>
+                  </form>
+                </div>
+
                 <h3 class="welcome-message">Welcome back, <span class="username">Mide</span></h3>
                 <p class="title">
                     <img class="icon" src="sniper.png" /> Goals
@@ -39,9 +51,22 @@
 
                 <ul id="goal-list">
                     <li class="selected">Climb mount Kilimanjaro
+                       <span id="clone">
                         <span id="drop-toggle" class="treedots" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></span>
                         <div id="drop" class="dropdown-menu manipulate" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item edit" href="#">
+                            <a class="dropdown-item edit" href="#" id="del1">
+                                <i class="fa fa-edit"></i>edit
+                            </a>
+                            <a class="dropdown-item delete" href="#">
+                                <i class="fa fa-trash-o"></i>delete
+                            </a>
+                        </div>
+                       </span>
+                    </li>
+                    <li>Complete the HNG Internship
+                            <span id="drop-toggle" class="treedots" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></span>
+                        <div id="drop" class="dropdown-menu manipulate" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item edit" href="#" id="del2">
                                 <i class="fa fa-edit"></i>edit
                             </a>
                             <a class="dropdown-item delete" href="#">
@@ -49,8 +74,18 @@
                             </a>
                         </div>
                     </li>
-                    <li>Complete the HNG Internship</li>
-                    <li>Achieve product market fit</li>
+                    <li>Achieve product market fit
+                    
+                            <span id="drop-toggle" class="treedots" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></span>
+                        <div id="drop" class="dropdown-menu manipulate" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item edit" href="#" id="del3">
+                                <i class="fa fa-edit"></i>edit
+                            </a>
+                            <a class="dropdown-item delete" href="#">
+                                <i class="fa fa-trash-o"></i>delete
+                            </a>
+                        </div>
+                    </li>
                 </ul>
 
                 <button class="add-goal" onclick="openForm()">
