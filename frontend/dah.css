@@ -242,10 +242,17 @@ input.search {
     line-height: 45px;
     color: #405954;
     padding-left: 10px;
+    cursor: pointer;
 }
 
 .sidebar ul li.selected {
     background: #F2FFFC;
+    border: 1px solid #C4C4C4;
+    border-radius: 6px;
+}
+
+.sidebar ul li:hover{
+    background: #FFF;
     border: 1px solid #C4C4C4;
     border-radius: 6px;
 }
