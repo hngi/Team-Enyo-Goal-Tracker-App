@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Enyogoal Sign Up</title>
+	<title>Enyo | Sign Up</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" href="https://res.cloudinary.com/walebant/image/upload/v1569272934/samples/enyo-goal/favicon.ico" type="image/x-icon"/>
 	<!-- bootstrap-->	
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 	<!-- external css for styling -->
@@ -13,8 +14,8 @@
 	<header>
 		<nav class="navbar navbar-expand-sm navbar-color">
 		 	<!-- Brand/logo -->
-		  	<a class="navbar-brand toplogo" href="#">
-		    	<img src="image/logo.png" alt="logo">
+		  	<a class="navbar-brand toplogo" href="index.html">
+				<img src="https://res.cloudinary.com/walebant/image/upload/v1569272941/samples/enyo-goal/logo.svg" alt="logo">
 		  	</a>
 	  	</nav>
   	</header>
@@ -26,37 +27,44 @@
 				<div class="col-md-6">
 					
 					<!-- signup form -->
-					<h2>Create an account</h2>
+					<h1>Create an account</h1>
 						
 					<form method="post" action="">
 						<div class="form-group">
-							<label for="firstname" class="cols-sm-2 control-label">Firstname</label>
+							<!-- <label for="firstname" class="cols-sm-2 control-label">Firstname</label> -->
 							<div class="cols-sm-10">
-								<input type="text" class="form-control" name="lastname"  placeholder="Enter lastname" required="required" >	
+								<input type="text" class="form-control" name="lastname"  placeholder="Last name" required="required" >	
 							</div>
 						</div>
 
 						<div class="form-group">
-							<label for="lastname" class="cols-sm-2 control-label">Lastname</label>
+							<!-- <label for="lastname" class="cols-sm-2 control-label">Lastname</label> -->
 								<div class="cols-sm-10">
-									<input type="text" class="form-control" name="firstname" placeholder="Enter firstname" required="required" >
+									<input type="text" class="form-control" name="firstname" placeholder="First name" required="required" >
 								</div>
 						</div>
 
 						<div class="form-group">
-							<label for="emailaddress" class="cols-sm-2 control-label">Email Address</label>
+							<!-- <label for="emailaddress" class="cols-sm-2 control-label">Email address</label> -->
 								<div class="cols-sm-10">
-									<input type="email" class="form-control" name="emailaddress"  placeholder="Enter emailaddress" required="required">	
+									<input type="email" class="form-control" name="emailaddress"  placeholder="Email address" required="required">	
 								</div>
 						</div>
 
 						<div class="form-group">
-							<label for="password" class="cols-sm-2 control-label">Password</label>
+							<!-- <label for="password" class="cols-sm-2 control-label">Password</label> -->
 							<div class="cols-sm-10">
-								<input type="password" class="form-control" name="password" placeholder="Enter password" required="required">
+								<input type="password" class="form-control" name="password" placeholder="Password" required="required">
 							</div>
 						</div>
 
+						<div class="form-group">
+							<!-- <label for="password" class="cols-sm-2 control-label">Confirm Password</label> -->
+							<div class="cols-sm-10">
+								<input type="password" class="form-control" name="password" placeholder="Confirm password" required="required">
+							</div>
+						</div>
+						
 						<div class="form-group ">
 							<div class="cols-sm-10">
 								<input type="submit" name="submit" id="submit" class="button btn  btn-block  login-button" value="Sign Up">
@@ -65,7 +73,7 @@
 						<hr>
 
 						<div>
-							<p>Already have an account? <a href="" class="login-link">Log In</a></p>
+							<p>Already have an account? <a href="login.html" class="login-link">Log In</a></p>
 						</div>
 
 					</form>

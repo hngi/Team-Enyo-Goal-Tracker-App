@@ -9,7 +9,7 @@
 body{
     width: 100%;
     height: 100vh;
-    font-family: Roboto;
+    font-family: 'Roboto';
     font-style: normal;
 }
 
@@ -45,18 +45,21 @@ nav{
 
 .login-link:hover {
     text-decoration: none;
-    color: #54524F;
+    color: #F29A15;
 }
 
 .signup-link:hover{
     text-decoration: none;
     color: #FFFFFF;
+    box-shadow: 0 8px 6px -6px #54524F;
 }
+
 
 .signup-link, .login-link {
     color: #54524F;
     font-size: 24px;
     line-height: 28px;
+    border-radius: 5px;
 }
 
 .signup-link{    
@@ -64,8 +67,6 @@ nav{
     background: #F29A15;
     border: 2px solid #D39538;
 }
-
-
 
 /* section */
 
@@ -135,6 +136,14 @@ section{
         width: 50%;
     }
     
+    .hero-button-signup {
+        color: red;
+        padding-bottom: 17px; 
+    }
+
+    .hero-button-signup:hover {
+        box-shadow: 0 8px 6px -6px rgb(197, 196, 196);
+    }
     
   }
 
@@ -186,6 +195,10 @@ section{
         display: block;
     }
 
+    .hero-button-login:hover {
+        box-shadow: 0 8px 6px -6px rgb(197, 196, 196);
+    }
+
     .hero-button{
         border: 1px solid #FFFFFF;
         margin: 25px 0;
@@ -193,7 +206,7 @@ section{
         color: #FFFFFF;
         padding: 7px 0;
         text-transform: uppercase;
-        font-family: Roboto;
+        font-family: 'Roboto';
     }
 
     .hero-button-signup{
@@ -202,9 +215,9 @@ section{
         border: 2px solid #D39538;
     }
 
-    
-
-    
+    .hero-button-signup:hover {
+        box-shadow: 0 8px 6px -6px rgb(197, 196, 196);
+    }
 
     .signup-link, .login-link {
         color: #FFFFFF;
