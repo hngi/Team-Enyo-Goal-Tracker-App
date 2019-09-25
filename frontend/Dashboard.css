@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+body {
+    background-color: #FFFFFF;
+    font-family: Roboto;
+}
+
+.logo {
+    background-position: center top;
+    background-repeat: no-repeat;
+    margin-left: 45%;
+    margin-right: 40%;
+    margin-top: 3%;
+}
+
+.sidebar {
+    Height: 100%;
+    width: 20%;
+    position: fixed;
+    top:20px;
+    left: 4%;
+
+}
+.sidebar h3 {
+    font-family: Roboto;
+    color: #000000;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 28px;
+}
+
+.sidebar p {
+    font-family: Roboto;
+    color: #000000;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 28px;
+    padding-left:80px;
+}
+
+/*side bar line styling */
+.vertical-line{
+    border-right: 1px solid #C4C4C4;
+    top: 0p;
+    bottom: 0;
+    height: 100%;
+    position: absolute;
+    left: 27%;
+
+}
+
+.sidebar ul{
+    list-style: none;
+    text-decoration: none;
+
+}
+
+.sidebar ul li a{
+    text-decoration: none;
+    color:#405954;
+    font-family: Roboto;
+    line-height: 38px;
+
+
+}
+.goal {
+    margin-left: 30%;
+}
+/*styling of the hover on the side bar*/
+.sidebar ul li a:hover {
+    background-color: #F2FFFC;
+    box-sizing: border-box;
+    border: 1px solid #C4C4C4;
+    border-radius: 6px;
+}
+
+/*Styling of the bullets*/
+.sidebar ul li::before{
+    content: "\2022";
+    color: #05A382;
+    font-weight: bold;
+    display: inline-block;
+    width:1em;
+    margin-left: -1em;
+}
+/*Add goal and task styling*/
+.set-goal {
+    margin-top: 70%;
+}
+
+.set-goal a{
+    text-decoration: none;
+    color:#405954;
+    font-family: Roboto;
+
+}
+
+.set-task {
+    margin-top: 30%;
+}
+.set-task a{
+    text-decoration: none;
+    color:#405954;
+    font-family: Roboto;
+
+}
+/*search bar*/
+input {
+background: #FFFFFF;
+border: 1px solid #C4C4C4;
+box-sizing: border-box;
+border-radius: 6px;
+width:100%;
+padding: 10px;
+margin-bottom: 15px;
+}
+
+::placeholder{
+    font-family: Roboto;
+    font-size: 18px;
+    line-height: 21px;
+}
+/*Box Shadow Styling*/
+.container{
+    margin: auto auto;
+    border:2px solid#FFFFFF;
+    background-color: #FFFFFF;
+    max-width:40vw;
+    margin-top: 90px;
+    border-radius: 5px;
+    box-shadow: 6px 9px 43px rgba(0, 0, 0, 0.09);
+
+}
+

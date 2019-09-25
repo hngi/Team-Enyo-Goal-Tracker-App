@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/dash.css') }}">
+    <link rel="stylesheet" type="text/css" href="dah.css">
 
     <title>Dashboard | Enyo</title>
 </head>
@@ -17,9 +17,9 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4 sidebar">
-                <h3 class="welcome-message">Welcome back, <span class="username">{{ Auth::user()->name }}</span></h3>
+                <h3 class="welcome-message">Welcome back, <span class="username">Mide</span></h3>
                 <p class="title">
-                    <img class="icon" src="{{ asset('images/sniper.png') }}" /> Goals
+                    <img class="icon" src="sniper.png" /> Goals
                 </p>
 
                 <input class="search" type="text" name="name" placeholder="name your goal">
@@ -53,8 +53,7 @@
                         <img class="logo" src="https://res.cloudinary.com/mide358/image/upload/c_scale,w_115/v1569255273/Logo_aikcfk.png" alt="logo">
                     </a>
 
-                    <form class="form-inline my-1" id="logout-form" action="{{ route('logout') }}"  method="POST">
-                        @csrf
+                    <form class="form-inline my-1" id="logout-form" action="" method="POST">
                         <button class="btn btn-outline-white btn-sm my-0" type="submit">Logout</button>
                     </form>
 
