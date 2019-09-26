@@ -9,6 +9,7 @@ GOAL TRACKER APP (web / mobile) {This is a long-term to do app}
 - composer (make sure is present in system path)
 - Clone this repository into your system.
 - specify your database creditiels in the .env file. 
+- intialize database by running ```php artisan migrate``` or import the one in the **dbexample** folder. 
 - generate app key ```php artisan generate:key```. <br>
 - **If you have not been added to the organization, kindly work in your forked repository and open a pull request here** <br>
 - Fork the repository and push to your `branch`

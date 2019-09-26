@@ -25,7 +25,14 @@
                 <input class="search" type="text" name="name" placeholder="name your goal">
 
                 <ul>
-                    <li class="selected">Climb mount Kilimanjaro
+                @forelse (Auth::user()->goals as $goal)
+                    @if ($loop->first)
+                    <li class="selected">
+                    @else
+                    <li>
+                    
+                    @endif
+                        {{ $goal->name }}
                         <span class="treedots" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></span>
                         <div class="dropdown-menu manipulate" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item edit" href="#">
@@ -36,8 +43,10 @@
                             </a>
                         </div>
                     </li>
-                    <li>Complete the HNG Internship</li>
-                    <li>Achieve product market fit</li>
+                @empty
+                    <p>Click the button below to create a goal</p>
+                @endforelse
+                    
                 </ul>
 
                 <button class="add-goal">
@@ -61,9 +70,11 @@
                 </nav>
                 <div class="content">
 
+                @if ( count(Auth::user()->goals) > 0)
+                    @php ($goal = Auth::user()->goals[0])
                     <div class="row content-header">
                         <div class="col-md-12 goal-header">
-                            Climb mount kilimanjaro
+                        {{ $goal->name }}
                         </div>
                     </div>
 
@@ -72,19 +83,19 @@
                             <p class="title">To do List</p>
 
                             <div>
-                                <label class="custom-check">plan the goal 
-                                    <input type="checkbox" checked="checked">
+                                @forelse($goal->items as $item)
+                                <label class="custom-check"> {{ $item->title }} 
+                                    @if ($item->done)
+                                        <input type="checkbox" checked="checked">
+                                    @else 
+                                        <input type="checkbox">
+                                    @endif
+                                    
                                     <span class="checkmark"></span>
                                 </label>
-                                <label class="custom-check">work on hour morning 
-                                    <input type="checkbox">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label class="custom-check">work on hour befor going to bad 
-                                    <input type="checkbox">
-                                    <span class="checkmark"></span>
-                                </label>
-                                </form>
+                                @empty
+                                    <p>Click the button below to create add item</p>
+                                @endforelse
 
                                 <button class="add-goal">
                                     <img class="icon" src="https://res.cloudinary.com/mide358/image/upload/c_scale,w_16/v1569327133/Group_2_nr6p6g.png">Add a new task
@@ -123,7 +134,9 @@
 
                         </div>
                     </div>
-
+                @else
+                    <p>Kindly select a goal to see more info</p>
+                @endif
                 </div>
 
             </div>
