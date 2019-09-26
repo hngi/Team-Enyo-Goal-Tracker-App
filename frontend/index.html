@@ -1,45 +1,33 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Enyo goal tracker</title>
+    <title>Enyo | Goal Tracker</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
+    <link rel="icon" href="https://res.cloudinary.com/walebant/image/upload/v1569272934/samples/enyo-goal/favicon.ico" type="image/x-icon"/>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="index.css">
     
 </head>
   <body>       
          <!-- navigation -->
         <nav class="px-5 py-3">
             <div class="pl-md-5 logo">
-                <a class="" href="#">
-                    <img src="https://res.cloudinary.com/mide358/image/upload/c_scale,w_115/v1569255273/Logo_aikcfk.png" alt="logo" class="pl-4 img-fluid" alt="logo-image">
+                <a class="" href="index.html">
+                    <img src="https://res.cloudinary.com/mide358/image/upload/c_scale,w_115/v1569255273/Logo_aikcfk.png" class="pl-4 img-fluid" alt="logo-image">
                 </a>
             </div>                  
             <ul class="nav-links pr-md-5 pt-2">
-                @if (Route::has('login'))
-                    @auth
-                        <li class="">
-                            <a class="login-link" href="{{ url('/home') }}">Home</a>
-                        </li>
-                    @else
-                        <li class="">
-                            <a class="login-link" href="{{ route('login') }}">Log In</a>
-                        </li>
-
-                        @if (Route::has('register'))
-                            <li class="">
-                                <a class="signup-link" href="{{ route('register') }}">Sign Up</a>
-                            </li>
-                        @endif
-                    @endauth
-                
-                @endif
+                <li class="nav-sign-up">
+                    <a class="signup-link" href="signup.html">Sign Up</a>
+                </li>
+                <li class="">
+                    <a class="login-link" href="login.html">Log In</a>
+                </li>
             </ul>
             
             </div>
@@ -55,23 +43,23 @@
                         <h4 class="hero-text">Stay productive.</h4>
 
                         <div class="">
-                            <img src="images/Logo-mobile.png" class="img-fluid logo-mobile" alt="goal-img">
-                            <p class="hero-small-text">Your goals tracked effortlessly!</p>
+                            <img src="Logo-mobile.png" class="img-fluid logo-mobile" alt="goal-img">
+                            <p class="hero-small-text">Your goals, tracked effortlessly!</spp>
                         </div>
 
                         
 
-                        <div class="hero-button hero-button-signup  ">
-                            <a href="{{ route('register') }}" class="button signup-link">Sign Up</a> 
+                        <div class="hero-button hero-button-signup">
+                            <a href="signup.html" class="button signup-link">Sign Up</a> 
                         </div>
                         <div class="hero-button hero-button-login">
-                            <a class="button login-link" href="{{ route('login') }}">Log In</a>                            
+                            <a class="button login-link" href="login.html">Log In</a>                            
                         </div>
 
                     </div> 
                     <div class="col-md-6 col-lg-6 col-xs-12 bg-img">
                         <div class="goal-image" >
-                            <img src="images/bg-img.png" class="img-fluid" alt="goal-img">
+                            <img src="bg-img.png" class="img-fluid" alt="goal-img">
                         </div>
                     </div>
                 </div>
@@ -85,3 +73,4 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </body>
 </html>
+

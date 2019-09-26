@@ -58,6 +58,7 @@ header img {
     display: block;
     margin: 1.5em auto;
     padding: 10px;
+    font-size: 15px;
 }
 
 .container form button {
@@ -69,6 +70,10 @@ header img {
     padding: 10px;
     border: none;
     cursor: pointer;
+}
+
+.container form button:hover {
+    box-shadow: 0 8px 6px -6px var(--font-color-light);
 }
 
 .container form button  a{
@@ -84,6 +89,11 @@ header img {
     font-size: 12px;
     text-decoration: none;
     color: var(--font-color);
+}
+
+.container > a:hover {
+    text-decoration: underline;
+    color: cornflowerblue;
 }
 
 hr {
@@ -107,7 +117,18 @@ hr {
     font-weight: bold;
 }
 
+.container > p a:hover {
+    text-decoration: underline;
+    color: cornflowerblue;
+}
+
 @media (min-width: 600px) {
+    .container {
+        max-width: 50vw;   
+    }
+}
+
+@media (min-width: 1000px) {
     .container {
         max-width: 40vw;   
     }

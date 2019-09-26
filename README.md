@@ -2,6 +2,47 @@
 
 GOAL TRACKER APP (web / mobile) {This is a long-term to do app}
 
+# Installation Guide
+
+## Requirements
+- PHP >= 7.1.3
+- composer (make sure is present in system path)
+- Clone this repository into your system.
+- specify your database creditiels in the .env file. 
+- intialize database by running ```php artisan migrate``` or import the one in the **dbexample** folder. 
+- generate app key ```php artisan generate:key```. <br>
+- **If you have not been added to the organization, kindly work in your forked repository and open a pull request here** <br>
+- Fork the repository and push to your `branch`
+- Merge to your `master` and compare forks with the original repository
+- Open a Pull Request.
+- **Read [this](https://help.github.com/en/articles/creating-a-pull-request-from-a-fork) or watch [this](https://www.youtube.com/watch?v=G1I3HF4YWEw) for more help**
+
+```bash
+git clone https://github.com/hngi/Team-Enyo-Goal-Tracker-App.git
+```
+
+```bash
+cd Team-Enyo-Goal-Tracker-App
+```
+
+```bash
+cp .env.example .env
+```
+
+```bash
+php artisan serve
+```
+
+```bash
+Visit 127.0.0.1:8000 in your browser
+```
+
+# Contribution Guide
+
+```bash
+git checkout yourbrach
+```
+
 ### Expected functionalities
 1. User can sign up
 2. User can sign in

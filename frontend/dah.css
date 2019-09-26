@@ -1,0 +1,324 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+* {
+    font-family: Roboto;
+}
+
+body {
+    background-color: #FFFFFF;
+}
+
+
+/* progress bar*/
+
+.progress-container {
+    border-bottom: 1px solid #C4C4C4;
+}
+
+.progress-labels {
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 21px;
+    color: #405954;
+}
+
+.progress-labels .end {
+    float: right;
+}
+
+.note {
+    color: #405954;
+    font-size: 16px;
+    line-height: 21px;
+}
+
+
+/* custom-check */
+
+.custom-check {
+    display: block;
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 18px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color: #405954;
+}
+
+
+/* Hide the browser's default checkbox */
+
+.custom-check input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+
+/* Create a custom checkbox */
+
+.checkmark {
+    position: absolute;
+    top: 7px;
+    left: 0;
+    height: 15px;
+    width: 15px;
+    border: 1px solid #ccc;
+}
+
+
+/* On mouse-over, add a grey background color */
+
+.custom-check:hover input~.checkmark {
+    background-color: #ccc;
+}
+
+
+/* When the checkbox is checked, add a blue background */
+
+.custom-check input:checked~.checkmark {
+    background-color: #05A382;
+}
+
+
+/* Create the checkmark/indicator (hidden when not checked) */
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+
+/* Show the checkmark when checked */
+
+.custom-check input:checked~.checkmark:after {
+    display: block;
+}
+
+
+/* content */
+
+.main {
+    padding-top: 30px;
+    margin-left: 400px;
+}
+
+.main .content {
+    overflow: hidden;
+    box-shadow: 6px 9px 43px rgba(0, 0, 0, 0.09);
+    border-radius: 6px;
+    padding: 0px 5px;
+    margin: 10px;
+    height: 500px;
+    width: 750px;
+    position: fixed;
+}
+
+.main .content .content-body {
+    height: 100%;
+}
+
+
+/*todo list sidebar*/
+
+.main .content .sidebar {
+    position: relative;
+    text-align: left;
+    padding-left: 35px;
+}
+
+
+/*nav header */
+
+.main nav a {
+    margin: 0 auto;
+}
+
+.main nav button {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 28px;
+    color: rgba(64, 89, 84, 0.7);
+}
+
+
+/* goal header */
+
+.goal-header {
+    text-align: center;
+    background: #F2FFFC;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 40px;
+    color: #405954;
+}
+
+
+/*title*/
+
+.title,
+.content .sidebar p.title {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    color: #405954;
+    text-align: center;
+}
+
+.title .icon {
+    width: 30px;
+}
+
+
+/*side bar header*/
+
+.sidebar h3.welcome-message {
+    font-size: 18px;
+    line-height: 60px;
+    color: #2A4641;
+}
+
+.sidebar h3.welcome-message .username {
+    font-weight: bold;
+    color: #05A382;
+}
+
+.sidebar p.title {
+    font-size: 20px;
+    line-height: 30px;
+    margin: 35px;
+    color: #000;
+    font-weight: normal;
+}
+
+
+/*search bar*/
+
+input.search {
+    border: 1px solid #C4C4C4;
+    box-sizing: border-box;
+    border-radius: 6px;
+    width: 91%;
+    padding: 10px;
+    margin-bottom: 15px;
+    margin-left: 39px;
+}
+
+::placeholder {
+    font-family: Roboto;
+    font-size: 18px;
+    line-height: 21px;
+}
+
+
+/* sidebar*/
+
+.sidebar {
+    position: absolute;
+    width: 450px;
+    height: 100%;
+    left: 0;
+    text-align: center;
+    border-right: 1px solid #C4C4C4;
+    padding-top: 30px;
+}
+
+
+/* goals list*/
+
+.sidebar ul {
+    text-align: left;
+    list-style: none;
+    text-decoration: none;
+}
+
+.sidebar ul li {
+    text-decoration: none;
+    font-size: 20px;
+    line-height: 45px;
+    color: #405954;
+    padding-left: 10px;
+    cursor: pointer;
+}
+
+.sidebar ul li.selected {
+    background: #F2FFFC;
+    border: 1px solid #C4C4C4;
+    border-radius: 6px;
+}
+
+.sidebar ul li:hover{
+    background: #FFF;
+    border: 1px solid #C4C4C4;
+    border-radius: 6px;
+}
+
+
+/*Styling of the bullets*/
+
+.sidebar ul li::before {
+    content: "\2022";
+    color: #05A382;
+    font-size: 25px;
+    font-weight: bolder;
+    position: relative;
+    right: 0.3rem;
+    top: 0.15rem;
+}
+
+
+/* dots menu*/
+
+.sidebar ul li .dropdown-menu {
+    min-width: 3rem;
+    padding: 0;
+    left: 60px !important;
+}
+
+.sidebar ul li .dropdown-menu a {
+    padding: 0 .6rem;
+}
+
+.sidebar ul li .dropdown-menu a.delete {
+    color: #D15B5B;
+}
+
+
+/* add button*/
+
+.sidebar .add-goal .icon {
+    margin-top: -3px;
+    margin-right: 4px;
+}
+
+.sidebar .add-goal {
+    position: absolute;
+    top: 90%;
+    right: 0;
+    left: 0;
+    margin: auto;
+    border: none;
+    background: none;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 21px;
+    color: #405954;
+}
+
+.bg-orange {
+    background-color: #EEA538;
+}
+
+.treedots:after {
+    content: '\2807';
+    font-size: 1.5em;
+    color: #2e2e2e;
+    float: right;
+}
