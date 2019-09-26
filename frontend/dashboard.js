@@ -50,7 +50,6 @@ class Goals{
 		this.dropdown = addDropdown();
 		this.deleter = this.dropdown.lastElementChild.lastElementChild;
 		this.editor = this.dropdown.lastElementChild.firstElementChild;
-
 	}
 
 	addGoal() {
@@ -62,6 +61,18 @@ class Goals{
 			this.newGoal.addEventListener('click', () => {
 				this.newGoal.classList.toggle('active');
 				$(this.newGoal).siblings().removeClass('active');
+				this.editor.addEventListener('click', (e) => {
+					e.preventDefault();
+					openEdit();
+					editBtn.addEventListener('click', (f) => {
+						f.preventDefault();
+						if (editForm.value !== '' && editForm.value !== undefined) {
+							this.newGoal.childNodes[0].data = editForm.value;
+							closeEdit();
+							editForm.value = '';
+						}
+					});
+				});
 			});
 			goalList.appendChild(this.newGoal);
 			goalTitle.value = '';
@@ -71,19 +82,6 @@ class Goals{
 		else{
 			alert('please enter new goal title')
 		}
-
-		this.editor.addEventListener('click', (e) => {
-			e.preventDefault();
-			openEdit();
-			editBtn.addEventListener('click', (f) => {
-				f.preventDefault();
-				if (editForm.value !== '' && editForm.value !== undefined) {
-					this.newGoal.childNodes[0].data = editForm.value;
-					closeEdit();
-					editForm.value = '';
-				}
-			});
-		});
 
 		this.removeGoal();
 		// this.edit();
@@ -118,7 +116,27 @@ $(document).ready(function(){
 		    $(this).addClass('active').siblings().removeClass('active');
 		});
 	})
+
+	$('body #goal-list li div').find('.delete').click(function(e){
+		e.preventDefault();
+		$(this).parent().parent().parent().remove();
+	});
+
+	$('body #goal-list > li .edit').click(function(e){
+		editForm.value = '';
+		e.preventDefault();
+		openEdit();
+		editBtn.addEventListener('click', (j) => {
+			j.preventDefault();
+			e.target.parentNode.parentNode.parentNode.childNodes[0].data = editForm.value;
+			editForm.value = '';
+			closeEdit();
+		});
+		
+	});
 });
+
+
 
 
 
