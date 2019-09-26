@@ -58,6 +58,7 @@ header img {
     display: block;
     margin: 1.5em auto;
     padding: 10px;
+    font-size: 15px;
 }
 
 .container form button {
@@ -69,6 +70,10 @@ header img {
     padding: 10px;
     border: none;
     cursor: pointer;
+}
+
+.container form button:hover {
+    box-shadow: 0 8px 6px -6px var(--font-color-light);
 }
 
 .container form button  a{
@@ -86,6 +91,11 @@ header img {
     color: var(--font-color);
 }
 
+.container > a:hover {
+    text-decoration: underline;
+    color: cornflowerblue;
+}
+
 hr {
     border: 0.5px solid rgba(0, 0, 0, 0.09);
     width: 10.5rem;
@@ -100,10 +110,6 @@ hr {
     margin-top: 0;
 }
 
-.container > p.details {
-    margin-bottom: 0;
-}
-
 .container > p a {
     color: var(--font-color);
     text-decoration: none;
@@ -111,7 +117,18 @@ hr {
     font-weight: bold;
 }
 
+.container > p a:hover {
+    text-decoration: underline;
+    color: cornflowerblue;
+}
+
 @media (min-width: 600px) {
+    .container {
+        max-width: 50vw;   
+    }
+}
+
+@media (min-width: 1000px) {
     .container {
         max-width: 40vw;   
     }
