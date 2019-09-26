@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="icon" href="https://res.cloudinary.com/walebant/image/upload/v1569272934/samples/enyo-goal/favicon.ico" type="image/x-icon"/>
-	<!-- bootstrap-->	
+	<!-- bootstrap-->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 	<!-- external css for styling -->
 	<link rel="stylesheet" type="text/css" href="signup.css">
@@ -25,50 +25,54 @@
 			<div class="row">
 				<div class="col-md-3"></div>
 				<div class="col-md-6">
-					
+
 					<!-- signup form -->
 					<h1>Create an account</h1>
-						
+
 					<form method="post" action="">
 						<div class="form-group">
 							<!-- <label for="firstname" class="cols-sm-2 control-label">Firstname</label> -->
 							<div class="cols-sm-10">
-								<input type="text" class="form-control" name="lastname"  placeholder="Last name" required="required" >	
+								<input type="text" class="form-control" name="lastname"  placeholder="Last name" pattern="[A-Za-z]+" required="required" >
 							</div>
 						</div>
 
 						<div class="form-group">
 							<!-- <label for="lastname" class="cols-sm-2 control-label">Lastname</label> -->
 								<div class="cols-sm-10">
-									<input type="text" class="form-control" name="firstname" placeholder="First name" required="required" >
+									<input type="text" class="form-control" name="firstname" placeholder="First name" pattern="[A-Za-z]+" required="required" >
 								</div>
 						</div>
 
 						<div class="form-group">
 							<!-- <label for="emailaddress" class="cols-sm-2 control-label">Email address</label> -->
 								<div class="cols-sm-10">
-									<input type="email" class="form-control" name="emailaddress"  placeholder="Email address" required="required">	
+									<input type="email" class="form-control" name="emailaddress"  placeholder="Email address" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required="required">
 								</div>
 						</div>
 
 						<div class="form-group">
 							<!-- <label for="password" class="cols-sm-2 control-label">Password</label> -->
 							<div class="cols-sm-10">
-								<input type="password" class="form-control" name="password" placeholder="Password" required="required">
+                                <input type="password" class="form-control" id="createPassword" name="password" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                title="Must be at least 8 characters and contain at least one number, one uppercase and one lowercase letter"
+                                 required="required">
 							</div>
 						</div>
 
 						<div class="form-group">
 							<!-- <label for="password" class="cols-sm-2 control-label">Confirm Password</label> -->
 							<div class="cols-sm-10">
-								<input type="password" class="form-control" name="password" placeholder="Confirm password" required="required">
+                                <input type="password" class="form-control" id="verifyPassword" name="password" placeholder="Confirm password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                title="please enter same password as above" onchange="checkPassword();" required="required">
+
 							</div>
 						</div>
-						
+
 						<div class="form-group ">
 							<div class="cols-sm-10">
 								<input type="submit" name="submit" id="submit" class="button btn  btn-block  login-button" value="Sign Up">
-							<div class="cols-sm-10">				
+							<div class="cols-sm-10">
 						</div>
 						<hr>
 
@@ -83,6 +87,6 @@
 		</div>
 	</section>
 
-
+<script src="signup.js"> </script>
 </body>
 </html>
