@@ -30,7 +30,7 @@ class GoalController extends Controller
 
     public function show($id)
     {
-        $goal = Goal::currentUser()->findOrFail($id);
+        $goal = Goal::currentUser()-with('items')->findOrFail($id);
 
         return response()->json($goal);
     }

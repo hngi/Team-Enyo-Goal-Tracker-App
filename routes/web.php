@@ -24,3 +24,10 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('goals', 'GoalController');
+Route::resource('items', 'ItemController');
+
+Route::get('items/{goal_id}', 'ItemController@index')->name('items.list');
+Route::post('items', 'ItemController@store')->name('items.store');
+Route::delete('items/{item}', 'ItemController@destroy')->name('items.destroy');
+Route::get('items/{item}', 'ItemController@show')->name('items.show');
+Route::put('items/{item}', 'ItemController@update')->name('items.update');
