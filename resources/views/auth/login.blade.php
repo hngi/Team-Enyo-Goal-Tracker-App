@@ -19,7 +19,7 @@
         <form method="POST" action="{{ route('login') }}">
             @csrf
 
-            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" placeholder="Email" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" placeholder="Email" name="email" value="{{ old('email') }}" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required autocomplete="email" autofocus>
 
             @error('email')
                 <span class="invalid-feedback" role="alert">
@@ -27,7 +27,8 @@
                 </span>
             @enderror
             
-            <input id="password" type="password" class="password form-control @error('password') is-invalid @enderror" placeholder="Password" name="password" required autocomplete="current-password">
+            <input id="password" type="password" class="password form-control @error('password') is-invalid @enderror" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+            title="Must be at least 8 characters and contain at least one number, one uppercase and one lowercase letter" placeholder="Password" name="password" required autocomplete="current-password">
 
             @error('password')
                 <span class="invalid-feedback" role="alert">

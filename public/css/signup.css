@@ -1,30 +1,126 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+/* Color variables */
+:root {
+    --background-color: #F2FFFC;
+    --card-color: #FFFFFF;
+    --font-color: #2A4641;
+    --font-color-light: #405954;
+    --button-color: #EEA538;
+}
+
 body{
-	background-color:white ;
+	background-color: var(--background-color);
+	font-family: 'Roboto';
+}
+
+header {
+	margin-bottom: 30px;
 }
 
 /*header styling*/
 .navbar-color{
 	background-color: #F2FFFC;
 }
-.toplogo{
-	width: 50%;
+header .toplogo{
+    width: 50px;
+    margin-left: 55px;
+    margin-top: 10px;
+}
+
+header .toplogo > img {
+	width: 120px;
 }
 
 /*section styling*/
-h2{
-	text-align: center;
-	padding-top: 20px
+
+.container {
+    margin: auto auto;
+    max-width: 70vw;
+    max-height: 50%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background: var(--card-color);
+    border-radius: 5px;
+    box-shadow: 6px 9px 43px rgba(0, 0, 0, 0.09);
 }
+
+.container h1 {
+    font-size: 20px;
+    color: var(--font-color);
+    text-align: center;
+	padding-top: 2rem;
+	font-weight: bold;
+}
+
+.container form {
+    margin-top: 2em;
+}
+
+.container form input{
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    border-radius: 2px;
+    font-size: 15px;
+    padding-left: auto;
+    padding-right: auto;
+}
+
 .button{
 	background-color: #EEA538;
 	color: #FFFFFF;
 	font-weight: bold;
 }
-p{
-	text-align: center;
+
+.button:hover {
+    box-shadow: 0 8px 6px -6px var(--font-color-light);
+    color: #fff;
 }
+
+hr {
+    border: 0.5px solid rgba(0, 0, 0, 0.09);
+    width: 10.5rem;
+}
+
+p {
+    color: var(--font-color-light);
+    text-align: center;
+    font-size: 12px;
+    font-weight: normal;
+    margin-bottom: 5em;
+    margin-top: -10px;
+}
+
+p a:hover {
+    color: cornflowerblue;
+}
+
 .login-link{
 	font-weight: bold;
-	font-size: 16px;
-	color: black
+	/* font-size: 15px; */
+	color: var(--font-color);
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 50vw;
+    }
+
+    .container .row form input{
+        width: 43vw;  
+        margin-left: -11vw;
+    }
+}
+
+@media (min-width: 1000px) {
+    .container {
+        max-width: 40vw;   
+    }
+
+    .container .row form input{
+        width: 35vw;  
+        margin-left: -9vw;
+    }
+
 }

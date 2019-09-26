@@ -26,16 +26,15 @@
 				<div class="col-md-6">
 					
 					<!-- signup form -->
-					<h2>Create an account</h2>
+					<h1>Create an account</h1>
 						
 					<form method="POST" action="{{ route('register') }}">
 						@csrf
 
 						<div class="form-group">
-							<label for="name" class="cols-sm-2 control-label">{{ __('Name') }}</label>
-
+							
 							<div class="cols-sm-10">
-								<input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" placeholder="Enter lastname" value="{{ old('name') }}" required autocomplete="name" autofocus>
+								<input id="name" type="text" class="form-control @error('name') is-invalid @enderror" pattern="[A-Za-z]+" name="name" placeholder="Enter name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
 								@error('name')
 									<span class="invalid-feedback" role="alert">
@@ -46,10 +45,9 @@
 						</div>
 
 						<div class="form-group">
-							<label for="email" class="cols-sm-2 control-label">{{ __('E-Mail Address') }}</label>
-
+							
 							<div class="cols-sm-10">
-								<input id="email" type="email" class="form-control @error('email') is-invalid @enderror" placeholder="Enter emailaddress" name="email" value="{{ old('email') }}" required autocomplete="email">
+								<input id="email" type="email" class="form-control @error('email') is-invalid @enderror" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="Enter email" name="email" value="{{ old('email') }}" required autocomplete="email">
 
 								@error('email')
 									<span class="invalid-feedback" role="alert">
@@ -60,10 +58,10 @@
 						</div>
 
 						<div class="form-group">
-							<label for="password" class="cols-sm-2 control-label">{{ __('Password') }}</label>
-
+							
 							<div class="cols-sm-10">
-								<input id="password" type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Enter password" name="password" required autocomplete="new-password">
+								<input id="password" type="password" class="form-control @error('password') is-invalid @enderror" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                title="Must be at least 8 characters and contain at least one number, one uppercase and one lowercase letter" placeholder="Enter password" name="password" required autocomplete="new-password">
 
 								@error('password')
 									<span class="invalid-feedback" role="alert">
@@ -74,10 +72,10 @@
 						</div>
 
 						<div class="form-group">
-								<label for="password-confirm" class="cols-sm-2 control-label">{{ __('Confirm Password') }}</label>
-	
+								
 								<div class="cols-sm-10">
-									<input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="Re-Enter password" required autocomplete="new-password">
+									<input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="Re-Enter password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                title="please enter same password as above" onchange="checkPassword();" required autocomplete="new-password">
 								</div>
 							</div>
 
@@ -99,5 +97,6 @@
 		</div>
 	</section>
 
+	<script src="{{ asset('js/signup.js') }}"> </script>
 </body>
 </html>
