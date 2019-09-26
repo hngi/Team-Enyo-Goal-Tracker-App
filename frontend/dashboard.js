@@ -100,6 +100,7 @@ const add = () => {
 	return goal;
 }
 
-addGoalBtn.addEventListener('click', () => {
+addGoalBtn.addEventListener('click', (e) => {
+    e.preventDefault();
 	add();
 });
