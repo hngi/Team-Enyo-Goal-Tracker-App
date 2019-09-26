@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="add-goal.css">
     <link rel="stylesheet" type="text/css" href="edit-form.css">
 
+
     <title>Dashboard | Enyo</title>
 </head>
  
@@ -50,11 +51,11 @@
                 <input class="search" type="text" name="name" placeholder="name your goal">
 
                 <ul id="goal-list">
-                    <li class="selected">Climb mount Kilimanjaro
-                       <span id="clone">
+                    <li class="active">Climb mount Kilimanjaro
+                       <span>
                         <span id="drop-toggle" class="treedots" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></span>
                         <div id="drop" class="dropdown-menu manipulate" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item edit" href="#" id="del1">
+                            <a class="dropdown-item edit" href="#" >
                                 <i class="fa fa-edit"></i>edit
                             </a>
                             <a class="dropdown-item delete" href="#">
@@ -64,15 +65,17 @@
                        </span>
                     </li>
                     <li>Complete the HNG Internship
+                        <span id="clone">
                             <span id="drop-toggle" class="treedots" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></span>
-                        <div id="drop" class="dropdown-menu manipulate" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item edit" href="#" id="del2">
-                                <i class="fa fa-edit"></i>edit
-                            </a>
-                            <a class="dropdown-item delete" href="#">
-                                <i class="fa fa-trash-o"></i>delete
-                            </a>
-                        </div>
+                            <div id="drop" class="dropdown-menu manipulate" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item edit" href="#" id="del2">
+                                    <i class="fa fa-edit"></i>edit
+                                </a>
+                                <a class="dropdown-item delete" href="#">
+                                    <i class="fa fa-trash-o"></i>delete
+                                </a>
+                            </div>
+                        </span>
                     </li>
                     <li>Achieve product market fit
                     
