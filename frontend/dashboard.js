@@ -59,6 +59,10 @@ class Goals{
 			this.newGoal.innerText = goalTitle.value;
 			this.newGoal.appendChild(this.dropdown)
 			this.newGoal.id = '';
+			this.newGoal.addEventListener('click', () => {
+				this.newGoal.classList.toggle('active');
+				$(this.newGoal).siblings().removeClass('active');
+			});
 			goalList.appendChild(this.newGoal);
 			goalTitle.value = '';
 			closeForm();
@@ -68,8 +72,21 @@ class Goals{
 			alert('please enter new goal title')
 		}
 
+		this.editor.addEventListener('click', (e) => {
+			e.preventDefault();
+			openEdit();
+			editBtn.addEventListener('click', (f) => {
+				f.preventDefault();
+				if (editForm.value !== '' && editForm.value !== undefined) {
+					this.newGoal.childNodes[0].data = editForm.value;
+					closeEdit();
+					editForm.value = '';
+				}
+			});
+		});
+
 		this.removeGoal();
-		this.edit();
+		// this.edit();
 	}
 
 	removeGoal() {
@@ -78,20 +95,9 @@ class Goals{
 		});
 	}
 
-	edit() {
-		this.editor.addEventListener('click', (e) => {
-			e.preventDefault();
-			openEdit();
-			editBtn.addEventListener('click', (f) => {
-				f.preventDefault();
-				if (editForm.value !== '' && editForm.value !== undefined) {
-					e.target.parentNode.parentNode.parentNode.childNodes[0].data = editForm.value;
-					closeEdit();
-					editForm.value = '';
-				}
-			});
-		});
-	}
+	// edit() {
+		
+	// }
 }
 
 const add = () => {
@@ -100,6 +106,42 @@ const add = () => {
 	return goal;
 }
 
-addGoalBtn.addEventListener('click', () => {
+addGoalBtn.addEventListener('click', (e) => {
+    e.preventDefault();
 	add();
 });
+
+$(document).ready(function(){
+	// $('body #goal-list:nth-child(1)').addClass('active');
+	$('body #goal-list > *').click( function(){
+		$(this).each(function(){
+		    $(this).addClass('active').siblings().removeClass('active');
+		});
+	})
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
