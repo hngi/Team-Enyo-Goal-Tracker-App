@@ -104,7 +104,11 @@ body {
     text-decoration: none;
     color:#405954;
     font-family: Roboto;
+}
 
+.taskContainer{
+    height:200px;
+    overflow-y: scroll;
 }
 /*search bar*/
 input {
