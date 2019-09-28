@@ -16,7 +16,7 @@ class GoalController extends Controller
     
     public function index()
     {
-        $goals = Goal::currentUser()->latest()->get();
+        $goals = Goal::currentUser()->with('items')->get();
 
         return response()->json($goals);
     }
@@ -30,7 +30,7 @@ class GoalController extends Controller
 
     public function show($id)
     {
-        $goal = Goal::currentUser()-with('items')->findOrFail($id);
+        $goal = Goal::currentUser()->with('items')->findOrFail($id);
 
         return response()->json($goal);
     }
@@ -39,7 +39,7 @@ class GoalController extends Controller
     {
         $goal = Goal::currentUser()->findOrFail($id);
         $goal->update($request->all());
-
+        var_dump($goal->done);
         return response()->json($goal, 200);
     }
 
@@ -48,6 +48,6 @@ class GoalController extends Controller
         $goal = Goal::currentUser()->findOrFail($id);
         Goal::destroy($id);
 
-        return response()->json(null, 204);
+        return response()->json(['error' => false], 204);
     }
 }

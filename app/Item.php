@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Item extends Model
 {
     protected $fillable = [
-        'title' , 'goal_id'
+        'title' , 'goal_id', 'done'
     ];
 
     public function scopeOfGoal($query, $goalId)

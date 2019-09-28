@@ -16,11 +16,11 @@
 
 <body>
 
-<div class="form-popup" id="myForm">
+    <div class="form-popup" id="myForm">
           <form class="form-container">
-            <h1>Add New Goal</h1>
+            <p style="font-size: 1em">Add New Goal</p>
 
-            <label for="email"><b>Enter Goal Title</b></label>
+            <label hidden><b>Enter Goal Title</b></label>
             <input type="text" placeholder="Your Goal Title" name="goal" id="goal-title">
 
             <button type="submit" class="btn" id="add-goal-btn">Add</button>
@@ -30,9 +30,9 @@
 
     <div class="form-popup" id="myTaskForm">
         <form class="form-container">
-          <h1>Add New Task</h1>
+          <p style="font-size: 1em">Add New Task</p>
 
-          <label for="email"><b>Enter Task Title</b></label>
+          <label hidden><b>Enter Task Title</b></label>
           <input type="text" placeholder="Your Task Title" name="task" taskTitle="">
 
           <button type="submit" class="btn" addTask="">Add</button>
@@ -65,7 +65,7 @@
                 </div>
 
 
-                <h3 class="welcome-message">Welcome back, <span class="username">Mide</span></h3>
+                <h3 class="welcome-message">Welcome back, <span class="username">{{ Auth::user()->name }}</span></h3>
                 <p class="title">
                     <img class="icon" src="https://res.cloudinary.com/mide358/image/upload/v1569410903/sniper_lzrtbc.png" /> Goals
                 </p>
@@ -73,19 +73,30 @@
                 <input class="search" type="text" name="name" placeholder="name your goal">
 
                 <ul id="goal-list">
-                    <li class="active initial">Test goal
-                       <span id="clone">
-                        <span id="drop-toggle" class="treedots" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></span>
-                        <div id="drop" class="dropdown-menu manipulate" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item edit" href="#" >
-                                <i class="fa fa-edit"></i>Eedit
-                            </a>
-                            <a class="dropdown-item delete" href="#">
-                                <i class="fa fa-trash-o"></i>Delete
-                            </a>
-                        </div>
-                       </span>
-                    </li>
+                    @forelse (Auth::user()->goals as $goal)
+                        @if ($loop->first)
+                        <li class="active initial" data-goal="{{ $goal->id }}">
+                        @else
+                        <li data-goal="{{ $goal->id }}">
+                        
+                        @endif
+                            {{ $goal->name }}
+                            <span id="clone">
+                                <span id="drop-toggle" class="treedots" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></span>
+                                <div id="drop" class="dropdown-menu manipulate" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item edit" href="#" >
+                                        <i class="fa fa-edit"></i>Edit
+                                    </a>
+                                    <a class="dropdown-item delete" href="#">
+                                        <i class="fa fa-trash-o"></i>Delete
+                                    </a>
+                                </div>
+                            </span>
+                        </li>
+                    @empty
+                        <p>Click the button below to create a goal</p>
+                    @endforelse
+                       
                 </ul>
 
                 <button class="add-goal" onclick="openForm()">
@@ -102,27 +113,35 @@
                     </a>
 
                     <form class="form-inline my-1" id="logout-form" action="" method="POST">
-                        <button class="btn btn-outline-white btn-sm my-0" type="submit">Logout</button>
+                        <button class="btn btn-outline-white btn-sm my-0" type="submit" style="font-size: 1em">Logout</button>
                     </form>
 
                 </nav>
                 <div class="content">
-
+                    @php
+                        $goal = new stdClass();
+                        $goal->name = '';
+                        $goal->items = [];
+                    @endphp
+                    @if ( count(Auth::user()->goals) > 0)
+                        @php ($goal = Auth::user()->goals[0])
+                    @endif
                     <div class="row content-header">
-                        <div class="col-md-12 goal-header">
-                            Climb mount kilimanjaro
+                        <div class="col-md-12 goal-header" style="font-size: 1em">
+                            {{ $goal->name }}
                         </div>
                     </div>
 
                     <div class="row content-body">
                         <div class="col-md-4 sidebar">
                             <div class="taskContainer">
-                            <p class="title">To do List</p>
+                            <p class="title" style="font-size: 1em">To do List</p>
 <!-- Do not remove this attribute called taskList="" -->
                             <ul taskList=""> 
-                                <li class="active initial">Test task
-                                   <span id="clone">
-                                    <span id="drop-toggle" class="treedots" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></span>
+                                <li class="initial" hidden>Test task
+                                    <!-- add this class to all tasks loaded from the JSON previouslyAddedTask -->
+                                   <span id="cloneTask">
+                                    <span id="drop-toggle" class="treedots task" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></span>
                                     <div id="drop" class="dropdown-menu manipulate" aria-labelledby="dropdownMenuButton">
                                         <a class="dropdown-item edit" href="#" >
                                             <i class="fa fa-edit"></i>Edit
@@ -133,6 +152,33 @@
                                     </div>
                                    </span>
                                 </li>
+                                
+                                @forelse($goal->items as $item)
+                                <li>  
+                                    @if ($item->done)
+                                        <span class="is-complete task-item" data-task="{{ $item->id }}">
+                                    @else 
+                                        <span class="task-item" data-task="{{ $item->id }}">
+                                    @endif
+                                    {{ $item->title }}
+                                    </span>
+                                    <span id="cloneTask">
+                                        <span id="drop-toggle" class="treedots task" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></span>
+                                        <div id="drop" class="dropdown-menu manipulate" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item edit" href="#">
+                                                <i class="fa fa-edit"></i>Edit
+                                            </a>
+                                            <a class="dropdown-item delete" href="#">
+                                                <i class="fa fa-trash-o"></i>Delete
+                                            </a>
+                                        </div>
+                                    </span>
+
+                                </li>
+                                @empty
+                                    <p>Click the button below to create add item</p>
+                                @endforelse
+
                             </ul>
                         </div>
 
@@ -150,35 +196,38 @@
                                 </label> -->
 
                                 <button class="add-task" onclick="openTaskForm()">
-                                    <img class="icon" src="https://res.cloudinary.com/mide358/image/upload/c_scale,w_16/v1569327133/Group_2_nr6p6g.png">Add a new task
+                                    <img class="icon" src="https://res.cloudinary.com/mide358/image/upload/c_scale,w_16/v1569327133/Group_2_nr6p6g.png">&nbsp;&nbsp;Add a new task
                                 </button>
                             
                         </div>
                         <div class="col-md-8 pt-3 goal-status">
-                            <div class="progress-container row">
+                            <div class="card progress-container row" style="padding-top: auto; padding-bottom: auto; border-width: 0px; margin-bottom:40px; margin-top: 10px">
                                 <div class="col-md-12">
-                                    <p class="title">Progess</p>
+                                    <p class="title" style="font-size: 1em">Progress</p>
 
-                                    <div class="progress">
-                                        <div class="progress-bar bg-orange" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" taskProgressBar="">
-                                            25%
+                                    <div class="progress" style="width:80%; margin-left: auto; margin-right: auto">
+                                        <div class="progress-bar bg-orange"
+                                        style="width:0%" 
+                                        role="progressbar"  aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" taskProgressBar="">
+                                            0%
                                         </div>
                                     </div>
 
-                                    <div class="progress-labels">
-                                        <span class="stat">0%</span>
+                                    <div class="progress-labels" style="width:80%;margin-left: auto; margin-right: auto; font-size: 0.8em">
+                                        <span class="start">0%</span>
                                         <span class="end">100%</span>
                                     </div>
                                 </div>
+                                &nbsp &nbsp &nbsp
 
-                                <p class="col-md-12 m-2 note">
-                                    Complete the three remaining tasks to achieve this goal
-                                </p>
+                                <!-- <p class="col-md-12 m-2 note">
+                                    Good Job!
+                                </p> -->
                             </div>
-
-                            <div class="row">
+                        
+                            <div class="card row" style="border-left-width: 0px;border-right-width: 0px;border-bottom-width: 0px;">
                                 <div class="col-md-12 pt-3">
-                                    <p class="title">Statistics</p>
+                                    <p class="title" style="margin-left: auto; margin-right: auto; font-size: 1em;">Statistics</p>
 
 
                                 </div>
@@ -186,7 +235,6 @@
 
                         </div>
                     </div>
-
                 </div>
 
             </div>
@@ -197,7 +245,6 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
     <script type="text/javascript" src="{{ asset('js/dashboard.js') }}"></script>
 
 </body>
