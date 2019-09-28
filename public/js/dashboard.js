@@ -223,13 +223,14 @@ class tasksForEachGoal {
 		this.editor = this.dropdown.lastElementChild.firstElementChild;
 	}
 
-	setId(id) {
-		this.newTask.querySelector('span').setAttribute('data-task', id);
-	}
-	addTaskDOM(title) {
+	addTaskDOM(item) {
 		this.newTask.appendChild(makeElem('span'));
 		this.newTask.querySelector('span').classList.add('task-item');
-		this.newTask.querySelector('span').innerText = title;
+		if(item.done){
+			this.newTask.querySelector('span').classList.add('is-complete');
+		}
+		this.newTask.querySelector('span').innerText = item.title;
+		this.newTask.querySelector('span').setAttribute('data-task', item.id);
 		this.newTask.querySelector('span').addEventListener('click', toggleTaskCompletion);
 		this.newTask.appendChild(this.dropdown);
 		this.newTask.id = ''; //What's this line for?
@@ -260,8 +261,6 @@ class tasksForEachGoal {
 			//This next line adds the newly defined goal to an array of goals created in this session
 			newTaskList.push(taskTitle.value);
 			console.log(`New Task List: ${newTaskList}`); //Goals are stored correctly
-			
-			this.addTaskDOM(taskTitle.value);
 
 			fetch('/items', {
 				method: 'POST',
@@ -277,13 +276,10 @@ class tasksForEachGoal {
 			  .then(res => res.json())
 			  .then(res => {
 				  userGoals.goals[userGoals.goalIndex].items.push(res)
-				  this.newTask.querySelector('span').setAttribute('data-task', res.id);
+				  this.addTaskDOM(res);
 				})
 			  .catch(error => console.error(error))
-			console.log({
-				title: taskTitle.value, 
-				goal_id: userGoals.goals[userGoals.goalIndex].id
-			  });
+
 			taskTitle.value = '';
 			
 			closeTaskForm();
@@ -317,10 +313,10 @@ const addTaskFunction = () => {
 	return task;
 };
 
-const addTaskFunctionDOM = (title) => {
+const addTaskFunctionDOM = (item) => {
 	clearNoTask();
 	let task = new tasksForEachGoal();
-	task.addTaskDOM(title);
+	task.addTaskDOM(item);
 	updateProgess(numberOfCompletedTasks());
 	return task;
 };
@@ -488,8 +484,7 @@ $(document).ready(function(){
 			clearTasks();
 			//display tasks list
 			userGoals.goals[userGoals.goalIndex].items.forEach(item => {
-				const task = addTaskFunctionDOM(item.title);
-				task.setId(item.id);
+				addTaskFunctionDOM(item);
 			});
 		});
 	});
