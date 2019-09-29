@@ -20,7 +20,7 @@ body{
 
 /*header styling*/
 header {
-    margin: 1em auto;
+    margin: 1.7em auto;
     width: 50px;
 }
 
@@ -34,6 +34,8 @@ header img {
 
 .container {
     margin: auto auto;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
     max-width: 70vw;
     max-height: 50%;
     overflow: hidden;
