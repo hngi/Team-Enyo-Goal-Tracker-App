@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
 /* Color variables */
+
 :root {
     --background-color: #F2FFFC;
     --card-color: #FFFFFF;
@@ -12,11 +13,11 @@
 body {
     width: 100%;
     height: 100%;
-    background-color: var(--background-color); 
+    background-color: var(--background-color);
     font-family: 'Roboto';
     font-style: normal;
     font-weight: bold;
-    overflow-x: hidden; 
+    overflow-x: hidden;
     overflow-y: auto;
 }
 
@@ -39,7 +40,7 @@ header img {
     flex-direction: column;
     background: var(--card-color);
     border-radius: 5px;
-    box-shadow: 6px 9px 43px rgba(0, 0, 0, 0.09);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.11), 0 2px 2px rgba(0, 0, 0, 0.11), 0 4px 4px rgba(0, 0, 0, 0.11), 0 8px 8px rgba(0, 0, 0, 0.11), 0 16px 16px rgba(0, 0, 0, 0.11), 0 32px 32px rgba(0, 0, 0, 0.11);
 }
 
 .container h1 {
@@ -76,22 +77,24 @@ header img {
     box-shadow: 0 8px 6px -6px var(--font-color-light);
 }
 
-.container form button  a{
+.container form button a {
     color: #fff;
     text-decoration: none;
     text-align: center;
     font-weight: bold;
 }
 
+
 /* Forgot password link */
-.container > a {
+
+.container>a {
     text-align: center;
     font-size: 12px;
     text-decoration: none;
     color: var(--font-color);
 }
 
-.container > a:hover {
+.container>a:hover {
     text-decoration: underline;
     color: cornflowerblue;
 }
@@ -101,7 +104,7 @@ hr {
     width: 10.5rem;
 }
 
-.container > p {
+.container>p {
     color: var(--font-color-light);
     text-align: center;
     font-size: 12px;
@@ -110,26 +113,26 @@ hr {
     margin-top: 0;
 }
 
-.container > p a {
+.container>p a {
     color: var(--font-color);
     text-decoration: none;
     font-size: 12px;
     font-weight: bold;
 }
 
-.container > p a:hover {
+.container>p a:hover {
     text-decoration: underline;
     color: cornflowerblue;
 }
 
 @media (min-width: 600px) {
     .container {
-        max-width: 50vw;   
+        max-width: 50vw;
     }
 }
 
 @media (min-width: 1000px) {
     .container {
-        max-width: 40vw;   
+        max-width: 40vw;
     }
 }
