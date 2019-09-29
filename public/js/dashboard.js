@@ -247,14 +247,17 @@ class tasksForEachGoal {
 		this.editor = this.dropdown.lastElementChild.firstElementChild;
 	}
 
-	addTaskDOM(item) {
+	setId(id) {
+		this.newTask.querySelector('span').setAttribute('data-task', id);
+	}
+
+	addTaskDOM(title, done) {
 		this.newTask.appendChild(makeElem('span'));
 		this.newTask.querySelector('span').classList.add('task-item');
-		if(item.done){
+		if(done){
 			this.newTask.querySelector('span').classList.add('is-complete');
 		}
-		this.newTask.querySelector('span').innerText = item.title;
-		this.newTask.querySelector('span').setAttribute('data-task', item.id);
+		this.newTask.querySelector('span').innerText = title;
 		this.newTask.querySelector('span').addEventListener('click', toggleTaskCompletion);
 		this.newTask.appendChild(this.dropdown);
 		this.newTask.id = ''; //What's this line for?
@@ -278,7 +281,7 @@ class tasksForEachGoal {
 			//This next line adds the newly defined goal to an array of goals created in this session
 			newTaskList.push(taskTitle.value);
 			console.log(`New Task List: ${newTaskList}`); //Goals are stored correctly
-
+			this.addTaskDOM(taskTitle.value, false);
 			fetch('/items', {
 				method: 'POST',
 				headers: {
@@ -292,8 +295,8 @@ class tasksForEachGoal {
 			  })
 			  .then(res => res.json())
 			  .then(res => {
-				  userGoals.goals[userGoals.goalIndex].items.push(res)
-				  this.addTaskDOM(res);
+				  userGoals.goals[userGoals.goalIndex].items.push(res);
+				  this.setId(res.id);
 				})
 			  .catch(error => console.error(error));
 
@@ -347,7 +350,8 @@ const addTaskFunction = () => {
 const addTaskFunctionDOM = (item) => {
 	clearNoTask();
 	let task = new tasksForEachGoal();
-	task.addTaskDOM(item);
+	task.addTaskDOM(item.title, item.done);
+	task.setId(item.id);
 	updateProgess(numberOfCompletedTasks());
 	return task;
 };
