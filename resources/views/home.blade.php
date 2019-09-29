@@ -112,7 +112,7 @@
                         <img class="logo" src="https://res.cloudinary.com/mide358/image/upload/c_scale,w_115/v1569255273/Logo_aikcfk.png" alt="logo">
                     </a>
 
-                    <form class="form-inline my-1" id="logout-form" action="" method="POST">
+                    <form class="form-inline my-1" id="logout-form" action="{{ route('logout') }}" method="POST">
                         <button class="btn btn-outline-white btn-sm my-0" type="submit" style="font-size: 1em">Logout</button>
                     </form>
 
