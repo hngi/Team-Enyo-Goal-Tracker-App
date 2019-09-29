@@ -41,7 +41,7 @@ header img {
     flex-direction: column;
     background: var(--card-color);
     border-radius: 5px;
-    box-shadow: 6px 9px 43px rgba(0, 0, 0, 0.09);
+    box-shadow: 6px 9px 42px rgba(0, 0, 0, 0.09);
 }
 
 .container h1 {
