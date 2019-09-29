@@ -1,32 +1,50 @@
 /* eslint-disable no-console */
+// Create goal
 const openForm = () => {
 	document.getElementById('myForm').style.display = 'block';
 	document.querySelector('.container').classList.add('blurredElement');
 };
-
-
+// Create task
 const openTaskForm = () => {
 	document.getElementById('myTaskForm').style.display = 'block';
 	document.querySelector('.container').classList.add('blurredElement');
 };
-//this one below is the form for creating goals
+// Close goal
 const closeForm = () => {
 	document.getElementById('myForm').style.display = 'none';
 	document.querySelector('.container').classList.remove('blurredElement');
 };
-//this one below is the form for creating goals
+
+// Close task
 const closeTaskForm = () => {
 	document.getElementById('myTaskForm').style.display = 'none';
 	document.querySelector('.container').classList.remove('blurredElement');
 };
 
+//Edit goal
 const openEdit = () => {
-	document.getElementById('edit').style.display = 'block';
+	document.querySelector('[editGoalPopup]').style.display = 'block';
+	// document.querySelector('.container').classList.add('blurredElement');
 };
 
+//Close goal edit
 const closeEdit = () => {
-	document.getElementById('edit').style.display = 'none';
+	document.querySelector('[editGoalPopup]').style.display = 'none';
+	// document.querySelector('.container').classList.remove('blurredElement');
 };
+
+// Edit task
+const openTaskEdit = () => {
+	document.querySelector('[editTaskPopup]').style.display = 'block';
+	// document.querySelector('.container').classList.add('blurredElement');
+};
+
+// Close task edit
+const closeTaskEdit = () => {
+	document.querySelector('[editTaskPopup]').style.display = 'none';
+	// document.querySelector('.container').classList.remove('blurredElement');
+};
+
 
 const getElem = (id) => {
 	return document.getElementById(id);
@@ -39,16 +57,18 @@ const makeElem = (elem) => {
 var addGoalBtn = getElem('add-goal-btn');
 var goalList = getElem('goal-list');
 var goalTitle = getElem('goal-title');
-var editPopup = getElem('edit');
+let editGoalPopup = document.querySelector('[editGoalPopup]');
 var editForm = getElem('edit-value');
 var editBtn = getElem('edit-goal-btn');
 var drop = getElem('cloneTask');
+var goalToEdit;
+var taskToEdit;
 
 // DOM elements for the task panel
 let addTaskButton = document.querySelector('[addTask]');
 let taskList = document.querySelector('[taskList]');
 let taskTitle = document.querySelector('[taskTitle]');
-// Use editPopup from above
+let editTaskPopup = document.querySelector('[editTaskPopup]');
 let editTaskForm = getElem('edit-task-value');
 let editTaskBtn = getElem('edit-task-btn');
 // The dropdown element built for the goal section will be reused here
@@ -95,12 +115,12 @@ const toggleTaskCompletion = () => {
 			  'Accept': 'application/json',
 			  'Content-Type': 'application/json'
 			},
-			  body: JSON.stringify({done: true})
+			  body: JSON.stringify({done: 0})
 			  
 		  })
 		  .then(res => res.json()) 
 		  .then(res => console.log(res))
-		  .catch(error => console.error(error))
+		  .catch(error => console.error(error));
 		return updateProgess(numberOfCompletedTasks());
 	}           
 	// Add a line here to update the number of completed tasks
@@ -112,12 +132,12 @@ const toggleTaskCompletion = () => {
 		  'Accept': 'application/json',
 		  'Content-Type': 'application/json'
 		},
-		  body: JSON.stringify({done: false})
+		  body: JSON.stringify({done: 1})
 		  
 	  })
 	  .then(res => res.json()) 
 	  .then(res => console.log(res))
-	  .catch(error => console.error(error))
+	  .catch(error => console.error(error));
 	return updateProgess(numberOfCompletedTasks());
 };
 
@@ -126,6 +146,9 @@ const listenForPreviouslyCompletedTasks = () => {
 	let oldTasks = document.querySelectorAll('.previouslyAddedTask');
 	oldTasks.forEach(oldTask => oldTask.addEventListener('click', ()=>toggleTaskCompletion()));
 };
+
+//Make sure to call this only after the previously set tasks and goals have been loaded into the DOM
+//Also call it each time a goal is clicked and the list of tasks is updated
 
 listenForPreviouslyCompletedTasks();
 
@@ -180,14 +203,14 @@ class Goals{
 				userGoals.goalIndex = userGoals.goals.length - 1; 
 				this.newGoal.setAttribute('data-goal', res.id);
 			})
-			.catch(error => console.error(error))
+			.catch(error => console.error(error));
 
 			goalTitle.value = '';
 			closeForm();
 
 		}
 		else{
-			alert('please enter new goal title');
+			alert('Please enter new goal title');
 		}
 
 		this.removeGoal();
@@ -196,6 +219,7 @@ class Goals{
 
 	removeGoal() {
 		this.deleter.addEventListener('click', (e) => {
+			newGoal('-');
 			//delete
 			fetch('/goals/'+e.target.parentNode.parentNode.parentNode.getAttribute('data-goal'), {
 				method: 'DELETE',
@@ -207,7 +231,7 @@ class Goals{
 			})
 			.then(res => res.text()) 
 			.then(res => console.log(res))
-			.catch(error => console.error(error)) 
+			.catch(error => console.error(error));
 			e.target.parentNode.parentNode.parentNode.remove();
 		});
 	}
@@ -236,16 +260,9 @@ class tasksForEachGoal {
 		this.newTask.id = ''; //What's this line for?
 		this.editor.addEventListener('click', (e) => {
 			e.preventDefault();
-			openEdit();
-			editBtn.addEventListener('click', (f) => {
-				f.preventDefault();
-				if (editTaskForm.value !== '' && editTaskForm.value !== undefined) {
-					this.newGoal.childNodes[0].data = editTaskForm.value;
-					closeEdit();
-					editTaskForm.value = '';
-				}
-				console.log('e no work');
-			});
+			openTaskEdit();
+			taskToEdit = e.target;
+
 		});
 		// this.newTask.addEventListener('click', ()=>toggleTaskCompletion());
 		
@@ -278,7 +295,7 @@ class tasksForEachGoal {
 				  userGoals.goals[userGoals.goalIndex].items.push(res)
 				  this.addTaskDOM(res);
 				})
-			  .catch(error => console.error(error))
+			  .catch(error => console.error(error));
 
 			taskTitle.value = '';
 			
@@ -293,8 +310,22 @@ class tasksForEachGoal {
 	// Not sure what this does but it was implemented in the add goal functionality so I just replicated it here
 	removeTask () {
 		this.deleter.addEventListener('click', (e) => {
+			fetch('/items/'+e.target.parentNode.parentNode.parentNode.childNodes[0].getAttribute('data-task'), {
+				method: 'DELETE',
+				headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json'
+				},
+				
+			})
+			.then(res => res.text()) 
+			.then(res => console.log(res))
+			.catch(error => console.error(error));
 			e.target.parentNode.parentNode.parentNode.remove();
+			updateProgess(numberOfCompletedTasks());
 		});
+
+		// We need to also remove tasks from the backend
 	}
 }
 
@@ -335,6 +366,13 @@ const clearNoTask = () => {
 //clear tasks list
 const clearTasks = () => {
 	$('ul[tasklist] li').not('li.initial').remove();
+}
+
+//clear goal tasks detial
+const newGoal = (title) => {
+	clearTasks();
+	$('.goal-header').text(title);
+	$('ul[tasklist] p').css('display', 'block');
 }
 
 // Adds a goal when the add goal button is clicked
@@ -472,7 +510,7 @@ $(document).ready(function(){
 		console.log(data); 
 		userGoals.goals = data;
 	})
-	.catch(error => console.error(error))
+	.catch(error => console.error(error));
 
 	// $('body #goal-list:nth-child(1)').addClass('active');
 	$('body #goal-list > *').click( function(){
@@ -480,16 +518,32 @@ $(document).ready(function(){
 			$(this).addClass('active').siblings().removeClass('active');
 			
 			userGoals.goalIndex = userGoals.goals.map(goal => goal.id).indexOf(parseInt($(this).attr('data-goal')));
-			
+			document.querySelector('.goal-header').innerText = userGoals.goals[userGoals.goalIndex].name;
 			clearTasks();
-			//display tasks list
-			userGoals.goals[userGoals.goalIndex].items.forEach(item => {
-				addTaskFunctionDOM(item);
-			});
+			fetch('/goals/'+userGoals.goals[userGoals.goalIndex].id, {
+                method: 'GET',
+                headers: {
+                  'Accept': 'application/json',
+                  'Content-Type': 'application/json'
+                } 
+              })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data); 
+                userGoals.goals[userGoals.goalIndex] = data;
+                
+                clearTasks();
+                //display tasks list
+                userGoals.goals[userGoals.goalIndex].items.forEach(item => {
+                    addTaskFunctionDOM(item);
+                });
+            })
+            .catch(error => console.error(error))
 		});
 	});
 
 	$('body #goal-list li div').find('.delete').click(function(e){
+		newGoal(editForm.value);
 		e.preventDefault();
 		//delete
 		fetch('/goals/'+$(this).parent().parent().parent().attr('data-goal'), {
@@ -511,14 +565,55 @@ $(document).ready(function(){
 		editForm.value = '';
 		e.preventDefault();
 		openEdit();
-		editBtn.addEventListener('click', (j) => {
-			j.preventDefault();
-			e.target.parentNode.parentNode.parentNode.childNodes[0].data = editForm.value;
-			editForm.value = '';
-			closeEdit();
-		});
+		//element to edit
+		goalToEdit = e.target;
 		
 	});
+
+	$('#edit-goal-btn').click(function(e){
+		e.preventDefault();
+		if (editForm.value !== '' && editForm.value !== undefined) {
+			goalToEdit.parentNode.parentNode.parentNode.childNodes[0].data = editForm.value;
+			fetch('/goals/'+userGoals.goals[userGoals.goalIndex].id, {
+				method: 'PUT',
+				headers: {
+				  'Accept': 'application/json',
+				  'Content-Type': 'application/json'
+				},
+				  body: JSON.stringify({name: editForm.value})
+				  
+			  })
+			  .then(res => res.json()) 
+			  .then(res => console.log(res))
+			  .catch(error => console.error(error));
+
+			  editForm.value = '';
+			  closeEdit();
+			  
+		}
+	});
+
+	$('#edit-task-btn').click(function(e){
+		e.preventDefault();
+		if (editTaskForm.value !== '' && editTaskForm.value !== undefined) {
+			taskToEdit.parentNode.parentNode.parentNode.childNodes[0].innerText = editTaskForm.value;
+			fetch('/items/'+taskToEdit.parentNode.parentNode.parentNode.childNodes[0].getAttribute('data-task'), {
+				method: 'PUT',
+				headers: {
+				  'Accept': 'application/json',
+				  'Content-Type': 'application/json'
+				},
+				  body: JSON.stringify({title: editTaskForm.value})
+				  
+			  })
+			  .then(res => res.json()) 
+			  .then(res => console.log(res))
+			  .catch(error => console.error(error));
+			closeTaskEdit();
+			editTaskForm.value = '';
+		}
+	});
+
 
 	$('ul[tasklist] li span.task-item').click(toggleTaskCompletion);
 
@@ -545,30 +640,3 @@ $(document).ready(function(){
 	});
 	
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

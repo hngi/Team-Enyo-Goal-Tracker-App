@@ -44,7 +44,7 @@
         <div class="row">
             <div class="col-md-4 sidebar">
             
-                <div class="edit-popup" id="edit">
+                <div class="edit-popup" editGoalPopup="">
                   <form class="edit-container">
                    <!--  <label for="email"><b>Edit Goal Title</b></label> -->
                     <input type="text" placeholder="Your Goal Title" name="goal" id="edit-value">
@@ -54,7 +54,7 @@
                   </form>
                 </div>
                 
-                <div class="edit-popup" id="edit-task">
+                <div class="edit-popup" editTaskPopup="">
                     <form class="edit-container">
                      <!--  <label for="email"><b>Edit Goal Title</b></label> -->
                       <input type="text" placeholder="Your Task Title" name="goal" id="edit-task-value">
