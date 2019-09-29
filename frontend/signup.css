@@ -14,23 +14,21 @@ body{
 	font-family: 'Roboto';
 }
 
-header {
-	margin-bottom: 30px;
-}
+/* header {
+	margin-bottom: 20px;
+} */
 
 /*header styling*/
-.navbar-color{
-	background-color: #F2FFFC;
-}
-header .toplogo{
+header {
+    margin: 1em auto;
     width: 50px;
-    margin-left: 55px;
-    margin-top: 10px;
 }
 
-header .toplogo > img {
-	width: 120px;
+header img {
+    margin-left: -45px;
+    width: 120px;
 }
+
 
 /*section styling*/
 
@@ -88,7 +86,7 @@ p {
     text-align: center;
     font-size: 12px;
     font-weight: normal;
-    margin-bottom: 5em;
+    margin-bottom: 2.5em;
     margin-top: -10px;
 }
 
