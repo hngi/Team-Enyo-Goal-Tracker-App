@@ -34,7 +34,7 @@
 						<div class="form-group">
 							
 							<div class="cols-sm-10">
-								<input id="name" type="text" class="form-control @error('name') is-invalid @enderror" pattern="[A-Za-z]+" name="name" placeholder="Enter name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+								<input id="name" type="text" class="form-control @error('name') is-invalid @enderror" pattern="[A-Za-z\s]+" name="name" placeholder="Enter name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
 								@error('name')
 									<span class="invalid-feedback" role="alert">

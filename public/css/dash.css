@@ -106,7 +106,7 @@ body {
 
 .main {
     padding-top: 30px;
-    margin-left: 450px;
+    margin-left: 400px;
 }
 
 .main .content {
@@ -115,7 +115,9 @@ body {
     border-radius: 6px;
     padding: 0px 5px;
     margin: 10px;
-    height: 100%;
+    height: 500px;
+    width: 750px;
+    /* position: fixed; */
 }
 
 .main .content .content-body {
@@ -128,7 +130,7 @@ body {
 .main .content .sidebar {
     position: relative;
     text-align: left;
-    padding-left: 35px;
+    /* padding-left: 35px; */
 }
 
 
@@ -175,6 +177,9 @@ body {
 
 
 /*side bar header*/
+h3.welcome-message{
+    margin-top: 30px;
+}
 
 .sidebar h3.welcome-message {
     font-size: 18px;
@@ -190,7 +195,9 @@ body {
 .sidebar p.title {
     font-size: 20px;
     line-height: 30px;
-    margin: 35px;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
     color: #000;
     font-weight: normal;
 }
@@ -218,13 +225,13 @@ input.search {
 /* sidebar*/
 
 .sidebar {
-    position: fixed;
+    position: absolute;
     width: 450px;
     height: 100%;
     left: 0;
     text-align: center;
     border-right: 1px solid #C4C4C4;
-    padding-top: 30px;
+    /* padding-top: 30px; */
 }
 
 
@@ -240,11 +247,26 @@ input.search {
     text-decoration: none;
     font-size: 20px;
     line-height: 45px;
-    color: #405954;
+    color: #5f5f5f;
     padding-left: 10px;
+    cursor: pointer;
 }
 
-.sidebar ul li.selected {
+.active{
+    background: #F2FFFC;
+    border: 1px solid #C4C4C4;
+    border-radius: 6px;
+    color: #405954;
+}
+
+/*.sidebar ul li {
+    background: #F2FFFC;
+    border: 1px solid #C4C4C4;
+    border-radius: 6px;
+    color: #405954;
+}*/
+
+.sidebar ul li:hover{
     background: #F2FFFC;
     border: 1px solid #C4C4C4;
     border-radius: 6px;
@@ -255,7 +277,7 @@ input.search {
 
 .sidebar ul li::before {
     content: "\2022";
-    color: #05A382;
+    color: #C4C4C4;
     font-size: 25px;
     font-weight: bolder;
     position: relative;
@@ -263,6 +285,9 @@ input.search {
     top: 0.15rem;
 }
 
+.sidebar ul li.active::before{
+    color: #05A382;
+}
 
 /* dots menu*/
 
@@ -290,7 +315,7 @@ input.search {
 
 .sidebar .add-goal {
     position: absolute;
-    bottom: 50px;
+    top: 90%;
     right: 0;
     left: 0;
     margin: auto;
@@ -312,4 +337,47 @@ input.search {
     font-size: 1.5em;
     color: #2e2e2e;
     float: right;
+}
+
+li.is-complete{text-decoration: line-through;}
+
+/* Task List */
+ul {
+    padding-left: 20px;
+}
+
+button.add-task{
+    margin-left:20% !important; 
+    margin-right: auto !important;
+    position: absolute;
+    bottom: 100px;
+    border-width: 0px;
+    background-color: white;
+}
+
+button.add-task:hover{
+    color: #05A382;
+}
+
+/* Use this to blur the bage when adding a task or goal (Gotten from stackoverflow) */
+.blurredElement {
+
+    /* Any browser which supports CSS3 */
+   filter: blur(5px);
+
+   /* Firefox version 34 and earlier */
+   filter: url("blur.svg#gaussian_blur");
+
+   /* Webkit in Chrome 52, Safari 9, Opera 39, and earlier */
+   -webkit-filter: blur(5px);
+}
+
+/* This fixes the span for the newly added items */
+span {
+    font-size: 0.85em !important;
+}
+
+span.is-complete {
+    /* color: #05A382 !important; */
+    text-decoration-line: line-through !important;
 }

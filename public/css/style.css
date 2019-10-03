@@ -9,8 +9,9 @@
 body{
     width: 100%;
     height: 100vh;
-    font-family: Roboto;
+    font-family: 'Roboto';
     font-style: normal;
+    background-color:#05A382;
 }
 
 
@@ -22,12 +23,12 @@ nav{
     align-items: center;
     min-height: 10px;
     background: #F2FFFC;
-    
+
 }
 
 .nav-links{
     display: flex;
-    width: 30%;
+    width: 40%;
     justify-content: space-around;
     align-items: center;
 }
@@ -45,27 +46,28 @@ nav{
 
 .login-link:hover {
     text-decoration: none;
-    color: #54524F;
+    color: #F29A15;
 }
 
 .signup-link:hover{
     text-decoration: none;
     color: #FFFFFF;
+    box-shadow: 0 8px 6px -6px #54524F;
 }
+
 
 .signup-link, .login-link {
     color: #54524F;
     font-size: 24px;
     line-height: 28px;
+    border-radius: 5px;
 }
 
-.signup-link{    
+.signup-link{
     color: #FFFFFF;
     background: #F29A15;
     border: 2px solid #D39538;
 }
-
-
 
 /* section */
 
@@ -73,15 +75,15 @@ section{
     background: #05A382;
     width: 100%;
     min-height: 572px;
-    
+
     padding-top: 100px;
 }
 
-.hero-text{  
+.hero-text{
     color: #FFFFFF;
-    font-weight: bold; 
+    font-weight: bold;
     font-size: 28px;
-    line-height: 50px;  
+    line-height: 50px;
 }
 
 .hero-small-text{
@@ -89,7 +91,7 @@ section{
     color: #FFFFFF;
     /* font-weight: bold; */
     font-size: 16px;
-    line-height: 100px;  
+    line-height: 100px;
 }
 
 .button{
@@ -111,12 +113,12 @@ section{
     .nav-links{
         width: unset;
     }
-    
+
 /* section */
     .hero-button-login{
         display: none;
     }
-    
+
   }
 
 @media (min-width: 481px) and (max-width: 767px) {
@@ -127,19 +129,27 @@ section{
 
     }
     /* navigation bar links */
-    
+
     .nav-links{
         display: flex;
         justify-content: space-around;
         align-items: center;
         width: 50%;
     }
-    
-    
+
+    .hero-button-signup {
+        color: red;
+        padding-bottom: 17px;
+    }
+
+    .hero-button-signup:hover {
+        box-shadow: 0 8px 6px -6px rgb(197, 196, 196);
+    }
+
   }
 
   @media (min-width: 320px) and (max-width: 480px) {
-      
+
 
   /* nav */
     header{
@@ -159,7 +169,7 @@ section{
     .hero-text{
         display: none;
     }
-    
+
     .hero-small-text{
         text-align: center;
         letter-spacing: normal;
@@ -176,7 +186,7 @@ section{
         color: #FFFFFF;
         font-weight: bold;
         font-size: 15px;
-        
+
     }
     a.button{
         padding: 0;
@@ -186,6 +196,10 @@ section{
         display: block;
     }
 
+    .hero-button-login:hover {
+        box-shadow: 0 8px 6px -6px rgb(197, 196, 196);
+    }
+
     .hero-button{
         border: 1px solid #FFFFFF;
         margin: 25px 0;
@@ -193,7 +207,7 @@ section{
         color: #FFFFFF;
         padding: 7px 0;
         text-transform: uppercase;
-        font-family: Roboto;
+        font-family: 'Roboto';
     }
 
     .hero-button-signup{
@@ -202,9 +216,9 @@ section{
         border: 2px solid #D39538;
     }
 
-    
-
-    
+    .hero-button-signup:hover {
+        box-shadow: 0 8px 6px -6px rgb(197, 196, 196);
+    }
 
     .signup-link, .login-link {
         color: #FFFFFF;
