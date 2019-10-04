@@ -14,28 +14,28 @@ body{
 	font-family: 'Roboto';
 }
 
-header {
-	margin-bottom: 30px;
-}
+/* header {
+	margin-bottom: 20px;
+} */
 
 /*header styling*/
-.navbar-color{
-	background-color: #F2FFFC;
-}
-header .toplogo{
+header {
+    margin: 1.7em auto;
     width: 50px;
-    margin-left: 55px;
-    margin-top: 10px;
 }
 
-header .toplogo > img {
-	width: 120px;
+header img {
+    margin-left: -45px;
+    width: 120px;
 }
+
 
 /*section styling*/
 
 .container {
     margin: auto auto;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
     max-width: 70vw;
     max-height: 50%;
     overflow: hidden;
@@ -43,7 +43,12 @@ header .toplogo > img {
     flex-direction: column;
     background: var(--card-color);
     border-radius: 5px;
-    box-shadow: 6px 9px 43px rgba(0, 0, 0, 0.09);
+    box-shadow: 0 1px 1px rgba(0,0,0,0.11), 
+                    0 2px 2px rgba(0,0,0,0.11), 
+                    0 4px 4px rgba(0,0,0,0.11), 
+                    0 8px 8px rgba(0,0,0,0.11), 
+                    0 16px 16px rgba(0,0,0,0.11), 
+                    0 32px 32px rgba(0,0,0,0.11);
 }
 
 .container h1 {
@@ -88,7 +93,7 @@ p {
     text-align: center;
     font-size: 12px;
     font-weight: normal;
-    margin-bottom: 5em;
+    margin-bottom: 2.5em;
     margin-top: -10px;
 }
 

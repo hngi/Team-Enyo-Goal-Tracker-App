@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" href="https://res.cloudinary.com/walebant/image/upload/v1569272941/samples/enyo-goal/logo.svg" type="image/x-icon"> 
-    <link rel="stylesheet" href="{{ asset('css/login.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/forgot-password.css') }}">
     <title>Forget Password | Enyo</title>
 </head>
 <body>
@@ -15,7 +15,7 @@
         
     <section class="container">
         <h1> {{ __('Reset Password') }}</h1>
-        <p class="details">Enter your email and we'll send you instructions on how to reset <br>your password</p>
+        <h3>Enter your email and we'll send you instructions on how to reset your password.</h3>
 
         @if (session('status'))
             <div class="alert alert-success" role="alert">
@@ -35,8 +35,8 @@
             @enderror
             
             <br>
-            <button type="submit" >
-                <a href="#">{{ __('Send Password Reset Link') }}</a>
+            <button type="submit" name="button" value="submit">
+                {{ __('Send Password Reset Link') }}
             </button>
         </form>
         

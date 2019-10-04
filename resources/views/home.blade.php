@@ -44,7 +44,7 @@
         <div class="row">
             <div class="col-md-4 sidebar">
             
-                <div class="edit-popup" id="edit">
+                <div class="edit-popup" editGoalPopup="">
                   <form class="edit-container">
                    <!--  <label for="email"><b>Edit Goal Title</b></label> -->
                     <input type="text" placeholder="Your Goal Title" name="goal" id="edit-value">
@@ -54,7 +54,7 @@
                   </form>
                 </div>
                 
-                <div class="edit-popup" id="edit-task">
+                <div class="edit-popup" editTaskPopup="">
                     <form class="edit-container">
                      <!--  <label for="email"><b>Edit Goal Title</b></label> -->
                       <input type="text" placeholder="Your Task Title" name="goal" id="edit-task-value">
@@ -112,7 +112,7 @@
                         <img class="logo" src="https://res.cloudinary.com/mide358/image/upload/c_scale,w_115/v1569255273/Logo_aikcfk.png" alt="logo">
                     </a>
 
-                    <form class="form-inline my-1" id="logout-form" action="" method="POST">
+                    <form class="form-inline my-1" id="logout-form" action="{{ route('logout') }}" method="POST">
                         <button class="btn btn-outline-white btn-sm my-0" type="submit" style="font-size: 1em">Logout</button>
                     </form>
 
