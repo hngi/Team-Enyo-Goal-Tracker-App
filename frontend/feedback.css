@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+body{
+	background:#ffffff;
+	font-family: roboto;
+}
+header{
+	display: flex;
+	justify-content: flex-end;
+	background-color: #F2FFFC;
+
+
+}
+.logo{
+	margin-right: auto;
+}
+nav ul{
+	list-style: none;
+}
+nav ul li{
+	display: inline-block;
+	padding: 15px;
+}
+nav ul li a{
+	text-decoration: none;
+}
+nav .signup{
+	background: #F29A15;
+	border:2px normal #039538;
+	width: 70px;
+	height: 7px;
+	outline: none;
+	padding-top: 5px;
+}
+nav .signup a{
+	color: white;
+}
+.logout-btn{
+	outline: none;
+	border: none;
+	background:rgba(255,255,255,.2);
+
+}
+.form-group{
+	margin: auto auto;
+	width: 200px;
+}
+.form-control{
+	margin-top: 15px;
+	padding: 10px;
+	width: 300px;
+	border: 1px normal #85A382;
+	outline: none;
+
+}
+.contact-me{
+	text-align: center;
+	margin-left: 600px;
+	width: 250px;
+	font-style:normal;
+	font-size: 14px;
+	line-height: 21px;
+}
+.form-group button{
+	width: 320px;
+	background:#EEA538;
+	color: #ffffff;
+	height: 40px;
+	margin-top: 20px;
+	border: none;
+	outline: none;
+	margin-bottom: 30px;
+}
+p{
+	text-align: center;
+	margin-left: 130px;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 14px;
+	line-height: 10px;
+}
+p a{
+	text-decoration: none;
+	color:#85A382;
+}
