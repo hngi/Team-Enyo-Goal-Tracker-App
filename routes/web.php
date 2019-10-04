@@ -23,6 +23,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/faq', 'ContactController@faq')->name('faq');
+
+Route::get('/contact', 'ContactController@contact')->name('contact');
+
 Route::resource('goals', 'GoalController');
 Route::resource('items', 'ItemController');
 
