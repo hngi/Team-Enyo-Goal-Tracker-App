@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- bootstrap-->	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="shortcut icon" href="https://res.cloudinary.com/walebant/image/upload/v1569272941/samples/enyo-goal/logo.svg" type="image/x-icon"> 
     <link rel="stylesheet" href="css/login.css">
     <title>Login | Enyo</title>
@@ -40,7 +42,14 @@
                 <a href="#">{{ __('Login') }}</a>
             </button>
         </form>
-        
+
+        <hr>
+        <div class="form-group row mb-0 text-center">
+            <div class="col-md-8 offset-md-2">
+                <a href="{{ url('/auth/redirect/twitter') }}" class="btn btn-primary"><i class="fa fa-twitter"></i> Twitter</a>
+            </div>
+        </div>
+        <hr>
         <a href="{{ route('password.request') }}">Forgot Password?</a>
         <hr>
         <p>Don't have an account? <span><a href="{{ route('register') }}">Sign up</a></span></p>
