@@ -14,9 +14,9 @@
     </header>
         
     <section class="container">
-        <h1> {{ __('Reset Password') }}</h1>
+        <h1>Reset password</h1>
         <h3>Enter your email and we'll send you instructions on how to reset your password.</h3>
-
+        
         @if (session('status'))
             <div class="alert alert-success" role="alert">
                 {{ session('status') }}
