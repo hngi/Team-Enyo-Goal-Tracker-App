@@ -17,57 +17,24 @@ body{
 
 
 /* navigation bar and navigation menu-links */
-nav{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    min-height: 10px;
-    background: #F2FFFC;
+/* #navbarNav button {
+    width: 81.64px;
+} */
 
+nav button:hover {
+    border: 1px solid #F29A15;
 }
 
-.nav-links{
-    display: flex;
-    width: 40%;
-    justify-content: space-around;
-    align-items: center;
+.btn-primary {
+    background-color: #F29A15;
+    border-color: #F29A15
 }
 
-.nav-links a{
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 24px;
-    padding: 12px;
+.btn-primary:hover{
+    background-color: rgb(224, 145, 26);
+    border-color: rgb(224, 145, 26);
 }
 
-.nav-links li{
-    list-style-type: none;
-}
-
-.login-link:hover {
-    text-decoration: none;
-    color: #F29A15;
-}
-
-.signup-link:hover{
-    text-decoration: none;
-    color: #FFFFFF;
-    box-shadow: 0 8px 6px -6px #54524F;
-}
-
-
-.signup-link, .login-link {
-    color: #54524F;
-    font-size: 24px;
-    line-height: 28px;
-    border-radius: 5px;
-}
-
-.signup-link{
-    color: #FFFFFF;
-    background: #F29A15;
-    border: 2px solid #D39538;
-}
 
 /* section */
 
@@ -75,7 +42,6 @@ section{
     background: #05A382;
     width: 100%;
     min-height: 572px;
-
     padding-top: 100px;
 }
 

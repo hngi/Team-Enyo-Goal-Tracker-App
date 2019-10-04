@@ -46,13 +46,13 @@ h1 {
 }
 
 .faqSection button {
-    color: black;
+    color: #253330;
     padding-left: 0%;
     text-align: left;
 }
 
 .faqSection .card-body {
-    color: #405954;
+    color: black;
 }
 
 .faqSection button:focus {
@@ -60,7 +60,7 @@ h1 {
 }
 
 .faqSection button:hover {
-    color: #DE9E3F;
+    color: rgb(209, 131, 13);
     text-decoration-line: none;
 }
 
