@@ -35,3 +35,6 @@ Route::post('items', 'ItemController@store')->name('items.store');
 Route::delete('items/{item}', 'ItemController@destroy')->name('items.destroy');
 Route::get('items/{item}', 'ItemController@show')->name('items.show');
 Route::put('items/{item}', 'ItemController@update')->name('items.update');
+
+Route::get('/auth/redirect/{provider}', 'SocialController@redirect');
+Route::get('/callback/{provider}', 'SocialController@callback');
