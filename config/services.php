@@ -36,9 +36,9 @@ return [
 
 
     'google' => [
-        'client_id'     => '283283146190-3u8f3bb07a294jkjpc7tfadbmtepvked.apps.googleusercontent.com',
-        'client_secret' => 'SvPt8kSS5cLzsUUwv0Lnaq7G',
-        'redirect' => 'http://localhost/Team-Enyo-Goal-Tracker-App/login/google/callback'
+        'client_id'     => env('GOOGLE_CLIENT_ID'),
+        'client_secret' => env('GOOGLE_CLIENT_SECRET'),
+        'redirect'      => env('GOOGLE_REDIRECT')
     ],
     'twitter' => [
         'client_id' => env('TW_CLIENT_ID'),
