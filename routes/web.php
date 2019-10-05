@@ -35,11 +35,13 @@ Route::post('items', 'ItemController@store')->name('items.store');
 Route::delete('items/{item}', 'ItemController@destroy')->name('items.destroy');
 Route::get('items/{item}', 'ItemController@show')->name('items.show');
 Route::put('items/{item}', 'ItemController@update')->name('items.update');
-<<<<<<< HEAD
+
 Route::get('login/google', 'Auth\LoginController@redirectToProvider');
 Route::get('login/google/callback', 'Auth\LoginController@handleProviderCallback');
-=======
 
 Route::get('/auth/redirect/{provider}', 'SocialController@redirect');
 Route::get('/callback/{provider}', 'SocialController@callback');
->>>>>>> eef4bb1ee8c1819a2b41ef678cbb2a5924af568b
+
+Route::get('/auth/redirect/{provider}', 'SocialController@redirect');
+Route::get('/callback/{provider}', 'SocialController@callback');
+
