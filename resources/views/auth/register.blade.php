@@ -30,7 +30,7 @@
 						
 					<form method="POST" action="{{ route('register') }}">
 						@csrf
-
+						<div id="say"></div>
 						<div class="form-group">
 							
 							<div class="cols-sm-10">
@@ -82,6 +82,13 @@
 						<div class="form-group">
 							<div class="cols-sm-10">
 									<input type="submit" name="submit" id="submit" class="button btn  btn-block  login-button" value="Sign Up">
+							</div>
+
+							<hr>
+							<div class="form-group row mb-0 text-center">
+								<div class="col-md-8 offset-md-2">
+									<a href="{{ url('/auth/redirect/twitter') }}" class="btn btn-primary"><i class="fa fa-twitter"></i> Twitter</a>
+								</div>
 							</div>
 						</div>
 						<hr>

@@ -34,4 +34,17 @@ return [
         'secret' => env('SPARKPOST_SECRET'),
     ],
 
+<<<<<<< HEAD
+    'google' => [
+        'client_id'     => '283283146190-3u8f3bb07a294jkjpc7tfadbmtepvked.apps.googleusercontent.com',
+        'client_secret' => 'SvPt8kSS5cLzsUUwv0Lnaq7G',
+        'redirect' => 'http://localhost/Team-Enyo-Goal-Tracker-App/login/google/callback'
+=======
+    'twitter' => [
+        'client_id' => env('TW_CLIENT_ID'),
+        'client_secret' => env('TW_CLIENT_SECRET'),
+        'redirect' => env('TW_REDIRECT_URL'),
+>>>>>>> eef4bb1ee8c1819a2b41ef678cbb2a5924af568b
+    ],
+
 ];

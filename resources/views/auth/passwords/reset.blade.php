@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" href="https://res.cloudinary.com/walebant/image/upload/v1569272941/samples/enyo-goal/logo.svg" type="image/x-icon"> 
-    <link rel="stylesheet" href="{{ asset('css/login.css') }}">
+    <link rel="stylesheet" href="/css/login.css">
     <title>Reset Password | Enyo</title>
 </head>
 <body>
@@ -29,7 +29,8 @@
                 </span>
             @enderror
 
-            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" name="password" required autocomplete="new-password">
+            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+            title="Must be at least 8 characters and contain at least one number, one uppercase and one lowercase letter" placeholder="Password" name="password" required autocomplete="new-password">
 
             @error('password')
                 <span class="invalid-feedback" role="alert">
@@ -37,7 +38,8 @@
                 </span>
             @enderror
 
-            <input id="password-confirm" type="password" class="form-control"  placeholder="Confirm Password" name="password_confirmation" required autocomplete="new-password">
+            <input id="password-confirm" type="password" class="form-control" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+            title="Must be at least 8 characters and contain at least one number, one uppercase and one lowercase letter" placeholder="Confirm Password" name="password_confirmation" required autocomplete="new-password">
             
             <br>
             <button type="submit" >
